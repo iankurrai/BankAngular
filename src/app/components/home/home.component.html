@@ -1,0 +1,90 @@
+<app-header></app-header>
+
+
+<div id="slideshow">
+    <div id="carouselSlideshow" class="carousel slide" data-ride="carousel" data-interval="4000" data-pause="false">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100 carouselImage" src="../../../assets/wm1.jpg" alt="First slide">
+          <h4 class="bottom">All your Banking needs at one place</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="message">
+    <ul class="messageList" style="padding-left:0">
+      <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+        &bull; Beware of fake Income Tax Refund messages containing suspicious links. Please Do not click on suspicious links and never share your personal details. Fake messages or links might resemble to, sent by Income Tax Department or Bank. These are fake / phishing messages. Bank does not send any link asking for personal information / card details.
+        <span style="margin-left:1in;"></span>
+        &bull; Prevent Unauthorized Transactions in your demat account --> Update your Mobile Number with your Depository Participant. Receive alerts on your Registered Mobile for all debit and other important transactions in your demat account directly from CDSL on the same day......................issued in the interest of investors.
+        <span style="margin-left:1in;"></span>
+        &bull; KYC is one time exercise while dealing in securities markets - once KYC is done through a SEBI registered intermediary (broker, DP, Mutual Fund etc.), you need not undergo the same process again when you approach another intermediary.
+        <span style="margin-left:1in;"></span>
+        &bull; No need to issue cheques by investors while subscribing to IPO. Just write the bank account number and sign in the application form to authorise your bank to make payment in case of allotment. No worries for refund as the money remains in investor's account.
+        <span style="margin-left:1in;"></span>
+        &bull; BEWARE OF FRAUDS BEING PERPETRATED IN THE NAME OF CORONA VACCINE. DO NOT SHARE ACCOUNT INFORMATION WITH ANYONE OVER PHONE OR MAIL.
+      </marquee>
+    </ul>
+  </div>
+
+  <div id="mainFunctions">
+    <h2 style="font-size:2.5rem; text-align:center; margin-top:1%;">What we offer</h2>
+    <hr class="horizontal">
+    <br>
+    <div class="container">
+      <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 box-shadow">
+          <div class="card-header bg-dark text-white">
+            <h4 class="my-0 font-weight-normal">User Application</h4>
+          </div>
+          <div class="card-body">
+            <h2 class="card-title pricing-card-title text-muted">Open Account</h2>
+            <br>
+            <!-- <button type="button"  class="btn btn-lg btn-block btn-dark" >Open New Account</button> -->
+            <a  routerLink="/openaccount"><button type="button"  class="btn btn-lg btn-block btn-dark" >Open New Account</button></a>
+            <br>
+            <button type="button" class="btn btn-lg btn-block btn-dark">Track Application Status</button>
+            <br>
+            <a href="#" class="text-muted">Contact Customer Support</a>
+          </div>
+        </div>
+        <div class="card mb-4 box-shadow">
+          <div class="card-header bg-dark text-white">
+            <h4 class="my-0 font-weight-normal">Personal</h4>
+          </div>
+          <div class="card-body">
+            <h2 class="card-title pricing-card-title text-muted">Internet Banking</h2>
+            <br>
+            <button type="button" class="btn btn-lg btn-block btn-dark">Register for Online Banking</button>
+            <br>
+            <button type="button" class="btn btn-lg btn-block btn-dark">User Login</button>
+            <br>
+            <p><strong style="color:red;">Note: Please contact your Branch Manager for any Login related issues.</strong></p>
+          </div>
+        </div>
+        <div class="card mb-4 box-shadow">
+          <div class="card-header bg-dark text-white">
+            <h4 class="my-0 font-weight-normal">Admin</h4>
+          </div>
+          <div class="card-body">
+            <h2 class="card-title pricing-card-title text-muted">Bank Use</h2>
+            <br>
+            <!-- <button type="button" class="btn btn-lg btn-block btn-dark">Admin Login</button> -->
+            <a  routerLink="/adminlogin"><button type="button"  class="btn btn-lg btn-block btn-dark" >Admin Login</button></a>
+
+            <br>
+            <p><strong style="color:red;">Note: For office staff use only.</strong></p>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div id="customerSlide">
+    <img class="customerSlide" src="../../../assets/customer-care.jpg" alt="customer-care">
+    <h1 class="center">We are here for you 24*7</h1>
+    <h3 class="left-center">Bank online safely and securely from the comfort of your home.</h3>
+    <button type="button" class="btn btn-lg btn-danger left-bottom">Learn More</button>
+  </div>
+
+<app-footer></app-footer>

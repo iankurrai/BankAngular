@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormsModule, NgForm, FormGroup} from '@angular/forms';
 import{RegisterService} from '../../services/register.service';
-import{RegisterinfoModule} from '../../modules/registerinfo/registerinfo.module'
+import{RegisterinfoModule} from '../../modules/registerinfo/registerinfo.module';
+
 @Component({
   selector: 'app-openaccount',
   templateUrl: './openaccount.component.html',
@@ -39,7 +40,6 @@ export class OpenaccountComponent implements OnInit {
     this.reg.Pincode=this.customer.pincode;
     this.reg.PAL1=this.customer.PAL1;
     this.reg.PAL2=this.customer.PAL2;
-    this.reg.PAL1=this.customer.PAL1;
     this.reg.P_Landmark=this.customer.permalandmark;
     this.reg.P_City=this.customer.permacity;
     this.reg.P_State=this.customer.permastate;

@@ -2,8 +2,7 @@
     <h1>Open a Savings Account</h1>
     <div class="form">
         <h2>Personal Details</h2>
-        <form #accountform = "ngForm" (ngSubmit) = "RegisterData(accountform)">
-  
+        <form name="form" #accountform = "ngForm" (ngSubmit) = "accountform.form.valid && RegisterData(accountform)">
             <div class="details">
                 <table cellspacing = "20">
                     <tr>
@@ -16,14 +15,18 @@
                                 <option value="Mrs.">Mrs.</option>
                             </select>
                         </td>
-                        <span class="validation" *ngIf="title.errors?.required">Select a Title</span>
+                        <span *ngIf="accountform.submitted && title.invalid">
+                            <span class="validation" *ngIf="title.errors?.required">Select a Title</span>
+                        </span>
                     </tr>
                     <tr>
                         <td><label for="fname">First Name*</label></td>
                         <td class="field">
                             <input type="text" name="fname" [(ngModel)] = "customer.fname" #fname = "ngModel" id="fname" placeholder="Enter First Name" required>
                         </td>
+                        <span *ngIf="accountform.submitted && fname.invalid">
                         <span class="validation" *ngIf="fname.errors?.required">First Name cannot be empty</span>
+                        </span>
                     </tr>
                     <tr>
                         <td><label for="mname">Middle Name</label></td>
@@ -36,22 +39,28 @@
                         <td class="field">
                             <input type="text" name="lname" [(ngModel)]="customer.lname" #lname = "ngModel" id="lname" placeholder="Enter Last Name" required>
                         </td>
+                        <span *ngIf="accountform.submitted && lname.invalid">
                         <span class="validation" *ngIf="lname.errors?.required">Last Name cannot be empty</span>
+                        </span>
                     </tr>
                     <tr>
                         <td><label for="dname">Father's Name*</label></td>
                         <td class="field">
                             <input type="text" name="dname" [(ngModel)]="customer.dname" #dname = "ngModel" id="dname" placeholder="Enter Father's Name" required>        
                         </td>
+                        <span *ngIf="accountform.submitted && dname.invalid">
                         <span class="validation" *ngIf="dname.errors?.required">Field cannot be left empty</span>
+                        </span>
                     </tr>
                     <tr>
                         <td><label for="mobno">Mobile Number*</label></td>    
                         <td class="field">
                             <input type="text" name="mobno" [(ngModel)]="customer.mobno" #mobno = "ngModel" id="mobno" placeholder="Enter Mobile Number" maxlength="10" pattern="^([0-9]{10})$" required>
                         </td>
+                        <span *ngIf="accountform.submitted && mobno.invalid">
                         <span class="validation" *ngIf="mobno.errors?.required">Mobile Number cannot be Empty</span>
                         <span class="validation" *ngIf="mobno.errors?.pattern">Mobile number should be of 10 digits</span>
+                        </span>
                     </tr>
                     <tr>
                         <td><label for="email">Email ID</label></td>
@@ -59,23 +68,29 @@
                             <input type="email" name="email" [(ngModel)]="customer.email" #email = "ngModel" id="email" placeholder="Enter Email Address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                         </td>
                         <td>
+                            <span *ngIf="accountform.submitted && email.invalid">
                             <span class="validation" *ngIf="email.errors?.pattern">Enter a valid email address</span>
+                            </span>
                         </td>
                     </tr>
                     <tr>
                         <td><label for="aadhar">Aadhar Card Number*</label></td>
                         <td class="field">
-                            <input type="text" name="aadhar" [(ngModel)]="customer.aadhar" #aadhar = "ngModel" id="aadhar" placeholder="Enter Aadhar Card Number" maxlength="14" pattern="^([0-9]{14})$" required>
+                            <input type="text" name="aadhar" [(ngModel)]="customer.aadhar" #aadhar = "ngModel" id="aadhar" placeholder="Enter Aadhar Card Number" maxlength="12" pattern="^([0-9]{12})$" required>
                         </td>
+                        <span *ngIf="accountform.submitted && aadhar.invalid">
                         <span class="validation" *ngIf="aadhar.errors?.required">Field cannot be empty</span>
                         <span class="validation" *ngIf="aadhar.errors?.pattern">Enter a valid aadhar number</span>
+                        </span>
                     </tr>
                     <tr>
                         <td><label for="dob">Date of Birth*</label></td>
                         <td class="field">
                             <input type="date" name="dob" [(ngModel)]="customer.dob" #dob = "ngModel" id="dob" placeholder="Enter Date of Birth" required>
                         </td>
+                        <span *ngIf="accountform.submitted && dob.invalid">
                         <span class="validation" *ngIf="dob.errors?.required">Field cannot be empty</span>
+                        </span>
                     </tr>
                 </table>    
             </div>
@@ -88,14 +103,18 @@
                         <td class="field">
                             <input type="text" name="address1" [(ngModel)]="customer.address1" #address1 = "ngModel" id="address1" placeholder="Enter Address Line 1" maxlength="32" required>
                         </td>
+                        <span *ngIf="accountform.submitted && address1.invalid">
                         <span class="validation" *ngIf="address1.errors?.required">Field cannot be empty</span>
+                        </span>
                     </tr>
                     <tr>
                         <td><label for="address2">b) Address Line 2*</label></td>
                         <td class="field">
                             <input type="text" name="address2" [(ngModel)]="customer.address2" #address2 = "ngModel" id="address2" placeholder="Enter Address line 2" maxlength="32" required>
                         </td>
+                        <span *ngIf="accountform.submitted && address2.invalid">
                         <span class="validation" *ngIf="address2.errors?.required">Field cannot be empty</span>
+                        </span>
                     </tr>
                     <tr>
                         <td><label for="landmark">c) Landmark</label></td>
@@ -146,53 +165,58 @@
                                 <option value="West Bengal">West Bengal</option>
                             </select>
                         </td>
+                        <span *ngIf="accountform.submitted && state.invalid">
                         <span class="validation" *ngIf="state.errors?.required">Select State</span>
+                        </span>
                     </tr>
                     <tr>
                         <td><label for="city">e) City*</label></td>
                         <td class="field">
                             <input type="text" name="city" [(ngModel)]="customer.city" #city = "ngModel" id="city" placeholder="Enter City Name" required>
                         </td>
+                        <span *ngIf="accountform.submitted && city.invalid">
                         <span class="validation" *ngIf="city.errors?.required">Field cannot be empty</span>
+                        </span>
                     </tr>
                     <tr>
                         <td><label for="pincode">f) Pincode*</label></td>
                         <td class="field">
                             <input type="text" name="pincode" [(ngModel)]="customer.pincode" #pincode = "ngModel" id="pincode" placeholder="Enter Pincode" maxlength="6" pattern="^([0-9]{6})$" required>
                         </td>
+                        <span *ngIf="accountform.submitted && pincode.invalid">
                         <span class="validation" *ngIf="pincode.errors?.required">Field cannot be empty</span>
                         <span class="validation" *ngIf="pincode.errors?.pattern">Invalid Pincode</span>
+                        </span>
                     </tr>
                 </table>
             </div>
-            
+            <!-- [5:06 PM] Shama Mohammad
+<input type="checkbox" name="billingtoo" onclick="FillBilling(this.form)">
+<em>Check this box if Billing Address and Mailing Address are the same.</em> -->
+
+
             <div class="address2">
                 <h3>Permanent Address</h3>
-                <input type="checkbox" name="permaAddress" id="permaAddress"> Permanent Address same as Mailing address
+                <input type="checkbox" name="permaAddress" id="permaAddress" onclick="PermanentAddress()"> Permanent Address same as Mailing address
                 <table cellspacing = "20">
                     <tr>
-                        <td><label for="PAL1">a) Address Line 1*</label></td>
+                        <td><label for="permaAddress1">a) Address Line 1*</label></td>
                         <td class="field">
-                            <input type="text" name="PAL1" [(ngModel)]="customer.PAL1" #PAL1 = "ngModel" id="PAL1" placeholder="Enter Address Line 1" maxlength="32" required>
+                            <input type="text" name="permaAddress1" [(ngModel)]="customer.permaAddress1" #permaAddress1 = "ngModel" id="permaAddress1" placeholder="Enter Address Line 1" maxlength="32" required>
                         </td>
-                        <span class="validation" *ngIf="PAL1.errors?.required">Field cannot be empty</span>
+                        <span *ngIf="accountform.submitted && permaAddress1.invalid">
+                        <span class="validation" *ngIf="permaAddress1.errors?.required">Field cannot be empty</span>
+                        </span>
                     </tr>
                     <tr>
-                        <td><label for="PAL2">b) Address Line 2*</label></td>
+                        <td><label for="permaAddress2">b) Address Line 2*</label></td>
                         <td class="field">
-                            <input type="text" name="PAL2" [(ngModel)]="customer.PAL2" #PAL2 = "ngModel" id="PAL2" placeholder="Enter Address line 2" maxlength="32" required >
+                            <input type="text" name="permaAddress2" [(ngModel)]="customer.permaAddress2" #permaAddress2 = "ngModel" id="permaAddress2" placeholder="Enter Address line 2" maxlength="32" required>
                         </td>
-                        <span class="validation" *ngIf="PAL2.errors?.required">Field cannot be empty</span> 
+                        <span *ngIf="accountform.submitted && permaAddress2.invalid">
+                        <span class="validation" *ngIf="permaAddress2.errors?.required">Field cannot be empty</span>
+                        </span>
                     </tr>
-
-                   <!-- TRIAL ...........PAL1
-                    <tr>
-                        <td><label for="pAL1">PA1</label></td>
-                        <td class="field">
-                            <input type="text" name="pAL1" [(ngModel)]="customer.pAL1" #pAL1 = "ngModel" id="pAL1" placeholder="Enter pA1">
-                        </td>
-                         <span class="validation" *ngIf="pAL1.errors?.required">Field cannot be empty</span> 
-                    </tr> -->
                     <tr>
                         <td><label for="permalandmark">c) Landmark</label></td>
                         <td class="field">
@@ -242,22 +266,28 @@
                                 <option value="West Bengal">West Bengal</option>
                             </select>
                         </td>
+                        <span *ngIf="accountform.submitted && permastate.invalid">
                         <span class="validation" *ngIf="permastate.errors?.required">Select State</span>
+                        </span>
                     </tr>
                     <tr>
                         <td><label for="permacity">e) City*</label></td>
                         <td class="field">
                             <input type="text" name="permacity" [(ngModel)]="customer.permacity" #permacity = "ngModel" id="permacity" placeholder="Enter City Name" required>
                         </td>
+                        <span *ngIf="accountform.submitted && permacity.invalid">
                         <span class="validation" *ngIf="permacity.errors?.required">Field cannot be empty</span>
+                        </span>
                     </tr>
                     <tr>
                         <td><label for="permapincode">f) Pincode*</label></td>
                         <td class="field">
                             <input type="text" name="permapincode" [(ngModel)]="customer.permapincode" #permapincode = "ngModel" id="permapincode" placeholder="Enter Pincode" maxlength="6" pattern="^([0-9]{6})$" required>
                         </td>
+                        <span *ngIf="accountform.submitted && permapincode.invalid">
                         <span class="validation" *ngIf="permapincode.errors?.required">Field cannot be empty</span>
                         <span class="validation" *ngIf="permapincode.errors?.pattern">Invalid Pincode</span>
+                        </span>
                     </tr>
                 </table>
             </div>
@@ -366,27 +396,33 @@
                                 </optgroup>
                             </select>
                         </td>
+                        <span *ngIf="accountform.submitted && occType.invalid">
                         <span class="validation" *ngIf="occType.errors?.required">Select an Occupation</span>
+                        </span>
                     </tr>
                     <tr>
                         <td><label for="income">b) Source of Income*</label></td>
                         <td class="field">
                             <select name="income" id="income" [(ngModel)]="customer.income" #income="ngModel" required>
-                                <option value="" disabled>Select one</option>
+                                <option value="" disabled>Select One</option>
                                 <option value="Business">Business</option>
                                 <option value="Salary">Salary</option>
                                 <option value="Pension">Pension</option>
                                 <option value="Rent">Rent</option>
                             </select>
                         </td>
+                        <span *ngIf="accountform.submitted && income.invalid">
                         <span class="validation" *ngIf="income.errors?.required">Field cannot be empty</span>
+                        </span>
                     </tr>
                     <tr>
                         <td><label for="salary">c) Gross Annual Income*</label></td>
                         <td class="field">
                             <input type="text" name="salary" [(ngModel)]="customer.salary" #salary = "ngModel" id="salary" placeholder="Enter Gross Annual Income" required>
                         </td>
+                        <span *ngIf="accountform.submitted && salary.invalid">
                         <span class="validation" *ngIf="salary.errors?.required">Field cannot be empty</span>
+                        </span>
                     </tr>
                 </table>
             </div>
@@ -402,7 +438,9 @@
                                 <option value="No">No</option>
                             </select>
                         </td>
+                        <span *ngIf="accountform.submitted && atmcard.invalid">
                         <span class="validation" *ngIf="atmcard.errors?.required">Select an Option</span>
+                        </span>
                     </tr>
                     <tr>
                         <td><label for="accType">Account Type</label></td>
@@ -414,38 +452,55 @@
                                 <option value="Demat">Demat</option>
                             </select>
                         </td>
-                        <td><span class="validation" *ngIf="accType.errors?.required">Select an Option</span></td>
+                        <span *ngIf="accountform.submitted && accType.invalid">
+                        <span class="validation" *ngIf="accType.errors?.required">Select an Option</span>
+                        </span>
                     </tr>
                     <tr>
                         <td><label for="branchName">Branch Name</label></td>
                         <td class="field">
                             <input type="text" name="branchName" [(ngModel)]="customer.branchName" id="branchName" #branchName = "ngModel" placeholder="Enter Branch Name" required>
                         </td>
-                        <td><span class="validation" *ngIf="branchName.errors?.required">Field cannot be empty</span></td>
+                        <span *ngIf="accountform.submitted && branchName.invalid">
+                        <span class="validation" *ngIf="branchName.errors?.required">Field cannot be empty</span>
+                        </span>
                     </tr>
                     <tr>
-                        <td><label for="optNetBanking">Opt for Net banking</label></td>
+                        <td><label for="optNetBanking">Opt for Net Banking</label></td>
                         <td>
-                            <select name="optNetBanking" id="optNetBanking" [(ngModel)] = "customer.optNetBanking" #optNetBanking="ngModel" required>
+                            <select name="optNetBanking" id="optNetBanking" [(ngModel)]="customer.optNetBanking" #optNetBanking="ngModel" required>
                                 <option value="" disabled>Select One</option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                             </select>
                         </td>
-                        <td><span class="validation" *ngIf="optNetBanking.errors?.required">Select an Option</span></td>
+                        <span *ngIf="accountform.submitted && optNetBanking.invalid">
+                        <span class="validation" *ngIf="optNetBanking.errors?.required">Select an Option</span>
+                        </span>
                     </tr>
                     <tr>
                         <td>
-                            <input type="checkbox" name="agreeT&C" id="agreeT&C"> I Agree...        
+                            <input type="checkbox" name="agreeTerms" id="agreeTerms" [(ngModel)]="customer.agreeTerms" #agreeTerms="ngModel" required><label for="agreeTerms"> I Agree...</label>        
                         </td>
+                        <td></td>
+                        <span class="validation" *ngIf="accountform.submitted && agreeTerms.invalid">Accept T&C is required</span>
+                        
                     </tr>
                 </table>
             </div>
             
-           <div class = "btn">
-                <button type="submit" >Submit</button>
+            <div class="btn">
+                <button type="submit">Submit</button>
             </div>
         </form>
     </div>
 </div>
-<!--[disabled] = "accountform.invalid"-->
+
+<!-- [5:06 PM] Shama Mohammad
+function FillBilling(f) {​​
+  if(f.billingtoo.checked == true) {​​
+    f.billingname.value = f.shippingname.value;
+    f.billingcity.value = f.shippingcity.value;
+  }​​
+}​​ -->
+

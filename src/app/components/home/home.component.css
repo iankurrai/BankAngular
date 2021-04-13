@@ -1,0 +1,124 @@
+#header {
+    left: 0;
+    right: 0;
+    position: absolute;
+    /* background: linear-gradient(to bottom,#1a195d 20%, transparent); */
+    z-index: 1000;
+    padding: 0 10%;
+  }
+  
+  #navigation-brand {
+    font-size: 2.5rem;
+    color: #fff;
+    font-weight: bolder;
+  }
+  
+  .navbar-brand:hover {
+    color: red!important;
+  }
+  
+  .nav-link {
+    color: #fff!important;
+    margin-right: 1rem!important;
+    font-size: 1.5rem;
+    font-weight: bolder;
+  }
+  
+  .nav-link:hover {
+    color: red!important;
+  }
+  
+  /* Header 2 Class */
+  .header2 {
+    margin-top: 4%;
+    text-align: center;
+  }
+  
+  /* Slide Show Section */
+  .carouselImage {
+    position: relative;
+  }
+  
+  .bottom {
+    position: absolute;
+    top: 300px;
+    left: 800px;
+    color: #fff;
+    font-size: 3rem;
+    font-family: 'Monotype Corsiva', cursive;
+  }
+  
+  /* Message Section */
+  .messageList {
+    font-size: 1.2rem!important;
+    background-color: #be66af;
+    color: #fff;
+  }
+  
+  /* Main Function Section */
+  #mainFunctions {
+    padding: 2% 0% ;
+    font-size: 1rem;
+    color: grey;
+  }
+
+  a:hover { text-decoration: none;}
+  
+  .horizontal {
+    width: 7%;
+    background-color: red;
+    height: 2px;
+  }
+  
+  /* Customer Slide Section */
+  .customerSlide {
+    width: 100%;
+    height: 500px;
+    position: relative;
+  }
+  
+  .center {
+  position: absolute;
+  top: 1150px;
+  color: #fff;
+  margin-left: 2%;
+  }
+  
+  .left-center {
+    position: absolute;
+    top: 1250px;
+    color: #fff;
+    margin-left: 2%;
+  }
+  
+  .left-bottom {
+    position: absolute;
+    top: 1350px;
+    left: 30px;
+    color: #fff;
+  }
+  
+  /* Contact Us Section */
+  #contactUs {
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    padding: 2% 10% 1%;
+    font-size: 1rem;
+  }
+  
+  .social-icon {
+    margin: 2%;
+  }
+  
+  .instagram {
+    display: inline-block;
+    text-align: center;
+    border-radius: 40px;
+    color: #fff;
+    vertical-align: middle;
+    background: #d6249f;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+    box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+    margin-bottom: 4.5%;
+  }
