@@ -8,6 +8,8 @@ import{FooterComponent} from './components/footer/footer.component';
 import { AdminloginComponent } from './components/adminlogin/adminlogin.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UserinfoComponent } from './components/userinfo/userinfo.component';
+import { AboutusComponent } from './components/aboutus/aboutus.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 
 const routes: Routes = [
@@ -18,8 +20,9 @@ const routes: Routes = [
 {path: 'footer', component:FooterComponent},
 {path: 'adminlogin', component:AdminloginComponent},
 {path: 'register', component:RegisterComponent},
-{path: 'userinfo', component:UserinfoComponent}
-
+{path: 'userinfo', component:UserinfoComponent},
+{path:'aboutus', component:AboutusComponent},
+{path:'contact', component:ContactComponent}
 
 
 

@@ -3,24 +3,31 @@
     left: 0;
     right: 0;
     position: absolute;
-    background: linear-gradient(to bottom,#6e2945 100%, transparent);
+    /* background: linear-gradient(to bottom,#1a195d 20%, transparent); */
     z-index: 1000;
     padding: 0 10%;
   }
   
   #navigation-brand {
     font-size: 2.5rem;
-    color: #fff;
+    color: grey;
     font-weight: bolder;
   }
   
+  .navbar-brand:hover {
+    color: red!important;
+  }
+  
   .nav-link {
-    color: #fff!important;
+    color: grey!important;
     margin-right: 1rem!important;
     font-size: 1.5rem;
     font-weight: bolder;
   }
   
+  .nav-link:hover {
+    color: red!important;
+  }
   
   /* Header 2 Class */
   .header2 {
@@ -28,26 +35,40 @@
     text-align: center;
   }
   
-  /* admin login section */
-  #admin-login {
-    padding: 10% 30% 10%;
+  /* Slide Show Section */
+  .carouselImage {
+    position: relative;
   }
   
-  .login-icon {
-    width: 100%;
-    text-align: center;
-    color: #97144d;
-    letter-spacing: 1px;
+  .bottom-center {
+    position: absolute;
+    top: 200px;
+    left: 900px;
+    color: grey;
+    font-size: 2rem;
   }
   
-  .horizontal {
-    background-color: #97144d;
-    height: 1.5px;
+  .bottom {
+    position: absolute;
+    top: 250px;
+    left: 900px;
+    color: grey;
+    font-size: 2rem;
   }
   
-  button {
-    background-color: #97144d!important;
-    border: none!important;
+  /* Contact page section */
+  .contact-number {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  
+  .contact-icon {
+    position: relative;
+  }
+  
+  .toll-free-number {
+    float: right;
+    margin-right: 65%;
   }
   
   /* Contact Us Section */

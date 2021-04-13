@@ -14,6 +14,10 @@
     font-weight: bolder;
   }
   
+  .navbar-brand:hover {
+    color: red!important;
+  }
+  
   .nav-link {
     color: #fff!important;
     margin-right: 1rem!important;
@@ -21,6 +25,9 @@
     font-weight: bolder;
   }
   
+  .nav-link:hover {
+    color: red!important;
+  }
   
   /* Header 2 Class */
   .header2 {
@@ -28,26 +35,69 @@
     text-align: center;
   }
   
-  /* admin login section */
-  #admin-login {
-    padding: 10% 30% 10%;
+  /* Slide Show Section */
+  .carouselImage {
+    position: relative;
+    padding-top: 86px;
   }
   
-  .login-icon {
-    width: 100%;
-    text-align: center;
-    color: #97144d;
-    letter-spacing: 1px;
+  .bottom-center {
+    position: absolute;
+    top: 200px;
+    left: 500px;
+    color: #fff;
+    font-size: 2.5rem;
+  }
+  
+  /* Office Address Section */
+  #office-address {
+    padding: 4% 10% 2%;
+  }
+  
+  .office-title {
+    font-size: 2rem;
   }
   
   .horizontal {
-    background-color: #97144d;
-    height: 1.5px;
+    width: 7%;
+    background-color: red;
+    height: 2px;
   }
   
-  button {
-    background-color: #97144d!important;
-    border: none!important;
+  /* About Us Section */
+  #about-us {
+    background-color: lightgrey;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  
+  .facts {
+    padding-bottom: 1px;
+    text-align: center;
+  }
+  
+  .about-header {
+    padding-top: 1rem;
+    color: #5f1f39;
+  }
+  
+  .feature-box {
+    margin: 1rem auto;
+  }
+  
+  .feature-item {
+    margin: 2rem auto;
+  }
+  
+  .feature-icon {
+    color: #643445;
+  }
+  
+  .header {
+    color: red;
+    margin: 1rem auto;
+    font-size: 2rem;
+    font-weight: bold;
   }
   
   /* Contact Us Section */
