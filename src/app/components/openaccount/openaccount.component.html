@@ -212,7 +212,7 @@
 
             <div class="address2">
                 <h3 class="header" style="margin:3% 0">Permanent Address</h3>
-                <input type="checkbox" name="permaAddress" id="permaAddress" onclick="PermanentAddress()"><label class="header" for="permaAddress" style="margin-left:1%; margin-bottom:1%;"> Permanent Address same as Mailing address</label>
+                <input type="checkbox" name="permaAddress" id="permaAddress" (change)="PermanentAddress($event)" value="checked"><label class="header" for="permaAddress" style="margin-left:1%; margin-bottom:1%;"> Permanent Address same as Mailing address</label>
                 <table cellspacing = "20">
                     <tr>
                         <td><label for="permaAddress1" class="header">a) Address Line 1<span class="required-validation">*</span></label></td>

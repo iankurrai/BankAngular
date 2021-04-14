@@ -81,11 +81,34 @@ export class OpenaccountComponent implements OnInit {
     this.svc.GenerateRefID(this.acc_no).subscribe((data:string)=>{
       if(data!="Error Occurerd during RefID generation. Contact Admin for more details..")
       {
-        alert("Your details have been sent for approval\n Your Ref ID is "+ data + "\n Please save it for tracking your Application " );
+        alert("Your details have been sent for approval\n Your Ref ID is :  "+ data + "\n Please save it for tracking your Application " );
       }
       else{
         alert(data);
       }
     });
   }
+
+PermanentAddress(event)
+{
+    // this.customer.permaAddress.checked
+    if(event.target.checked==true){
+        this.customer.permaAddress1=this.customer.address1;
+        this.customer.permaAddress2=this.customer.address2;
+        this.customer.permalandmark=this.customer.landmark;
+        this.customer.permastate=this.customer.state;
+        this.customer.permacity=this.customer.city;
+        this.customer.permapincode=this.customer.pincode; 
+       }
+       else if(event.target.checked==false)
+      {
+        this.customer.permaAddress1="";
+        this.customer.permaAddress2="";
+        this.customer.permalandmark="";
+        this.customer.permastate="";
+        this.customer.permacity="";
+        this.customer.permapincode="";
+      } 
+       
+}
 }

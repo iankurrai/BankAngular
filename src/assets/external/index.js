@@ -54,4 +54,8 @@ $(document).ready(function(){
           },
           complete: updateCount
       });
+
+
   };
+
+  

@@ -29,6 +29,7 @@
             "scripts": [
              
               "src/assets/external/index.js"
+              
             
             ]
           },
