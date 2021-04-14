@@ -1,11 +1,14 @@
-h1
-{
-    text-align: center;
-}
 
 .form
 {
     margin-left: 20%;
+    margin-top:5%;
+
+}
+
+.details {
+    margin:3% 0;
+    width: 100%;
 }
 
 .field
@@ -15,6 +18,7 @@ h1
 
 input[type=text], input[type=date], input[type=email], select
 {
+    margin-left: 20%!important;
     width: 70%;
     padding: 8px 8px;
 }
@@ -22,19 +26,29 @@ input[type=text], input[type=date], input[type=email], select
 .validation
 {
     color: #ff4646;
-    text-align: left;
+    text-align: left
 }
 
-.btn
-{
-    margin-left: 35%;
-    padding-bottom: 2rem;
+.form-section {
+    padding: 7% 0;
+    margin-left: 12%;
 }
 
-button
-{
-    width: 15%;
-    font-size: 1.4rem;
-    background-color: blue;
-    color: white;
+.header {
+    color: #6e2945;
+}
+
+.submit-button {
+    text-align: center;
+    margin-right:50%;
+    margin-top:2%;
+}
+
+button{
+    background-color: #6e2945;
+    border:none;
+}
+
+.required-validation {
+    color: red;
 }

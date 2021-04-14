@@ -19,8 +19,16 @@ export class RegisterService {
     this.http = http;
    }
 
-   RegisterCustomer(reg:RegisterinfoModule):Observable<boolean>{
-    return this.http.post<boolean>(this.url+"/"+"RegisterCustomer",reg,this.httpOptions);
+   RegisterCustomer(reg:RegisterinfoModule):Observable<number>{
+    return this.http.post<number>(this.url+"/"+"RegisterCustomer",reg,this.httpOptions);
+  }
+  GenerateRefID(id:number):Observable<string>
+  {
+    return this.http.get<string>(this.url+"/GenerateRefID/"+id,this.httpOptions);
+  }
+  TrackRefID(id:string):Observable<string>
+  {
+    return this.http.get<string>(this.url+"/TrackRefID/"+ id, this.httpOptions);
   }
 }
 

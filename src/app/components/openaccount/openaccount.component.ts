@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,NgZone } from '@angular/core';
 import {FormsModule, NgForm, FormGroup} from '@angular/forms';
 import{RegisterService} from '../../services/register.service';
 import{RegisterinfoModule} from '../../modules/registerinfo/registerinfo.module';
-
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-openaccount',
   templateUrl: './openaccount.component.html',
@@ -12,10 +12,14 @@ export class OpenaccountComponent implements OnInit {
   customer : any = [];
   svc: RegisterService;
   reg= new RegisterinfoModule();
+  acc_no : number;
+  ngzone: NgZone;
+  router: Router;
 
-  constructor(svc:RegisterService) {
+  constructor(svc:RegisterService, ngzone:NgZone, router:Router) {
     this.svc = svc;
-
+    this.ngzone=ngzone;
+    this.router=router;
    }
 
   ngOnInit(): void {
@@ -24,6 +28,7 @@ export class OpenaccountComponent implements OnInit {
   RegisterData(accountform : NgForm) : void
   {
     console.log(accountform.value);
+    this.reg.Ref_ID=""
     this.reg.Title=this.customer.title;
     this.reg.Fname=this.customer.fname;
     this.reg.Mname=this.customer.mname;
@@ -36,10 +41,10 @@ export class OpenaccountComponent implements OnInit {
     this.reg.AddressL2=this.customer.address2;
     this.reg.Landmark=this.customer.landmark;
     this.reg.City=this.customer.city;
-    this.reg.States=this.customer.state;
+    this.reg.State=this.customer.state;
     this.reg.Pincode=this.customer.pincode;
-    this.reg.PAL1=this.customer.PAL1;
-    this.reg.PAL2=this.customer.PAL2;
+    this.reg.P_Address1=this.customer.permaAddress1;
+    this.reg.P_Address2=this.customer.permaAddress2;
     this.reg.P_Landmark=this.customer.permalandmark;
     this.reg.P_City=this.customer.permacity;
     this.reg.P_State=this.customer.permastate;
@@ -52,15 +57,35 @@ export class OpenaccountComponent implements OnInit {
     this.reg.AccountType=this.customer.accType;
     this.reg.Branch_Name=this.customer.branchName;
     /////////////////////////////////////////////////
-    console.log(this.reg.PAL1,this.reg.PAL2,this.reg.Branch_Name, this.reg.A_Status);
-   this.reg.A_Status="approved";
+    // console.log(this.reg.PAL1,this.reg.PAL2,this.reg.Branch_Name, this.reg.A_Status);
+   this.reg.Status="Waiting for Approval";
     //this.reg.Acc_No=1000002;
-    this.svc.RegisterCustomer(this.reg).subscribe((data:boolean)=>
+   
+    this.svc.RegisterCustomer(this.reg).subscribe((data:number)=>
+
     {
       alert(data);
-      if(data==true){
-        alert("New Customer Registered");}
-    })
-
+      if(data!=0)
+      {
+        this.acc_no=data;
+        alert("New Customer Registered");
+        localStorage.setItem('ACC_NO',data.toString());
+        // this.ngzone.run(()=>this.router.navigateByUrl('/track'));
+      }
+      else{
+        console.log(accountform.value);
+      }
+    });
+    //  alert(localStorage.getItem('ACC_NO'));
+     this.acc_no=parseInt(localStorage.getItem('ACC_NO'));
+    this.svc.GenerateRefID(this.acc_no).subscribe((data:string)=>{
+      if(data!="Error Occurerd during RefID generation. Contact Admin for more details..")
+      {
+        alert("Your details have been sent for approval\n Your Ref ID is "+ data + "\n Please save it for tracking your Application " );
+      }
+      else{
+        alert(data);
+      }
+    });
   }
 }

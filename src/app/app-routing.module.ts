@@ -10,6 +10,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { UserinfoComponent } from './components/userinfo/userinfo.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { TrackComponent } from './components/track/track.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
 {path: 'register', component:RegisterComponent},
 {path: 'userinfo', component:UserinfoComponent},
 {path:'aboutus', component:AboutusComponent},
-{path:'contact', component:ContactComponent}
+{path:'contact', component:ContactComponent},
+{path:'track', component:TrackComponent}
 
 
 

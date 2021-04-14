@@ -22,6 +22,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { UserinfoComponent } from './components/userinfo/userinfo.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { TrackComponent } from './components/track/track.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ContactComponent } from './components/contact/contact.component';
     UserinfoComponent,
     AboutusComponent,
     ContactComponent,
+    TrackComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class RegisterinfoModule {
   Acc_No: number;
+  Ref_ID: string;
   Title : string;
   Fname: string;
   Mname: string;
@@ -23,10 +24,10 @@ export class RegisterinfoModule {
   AddressL2 : string;
   Landmark: string;
   City : string;
-  States : string;
+  State : string;
   Pincode :number;
-  PAL1:string;
-  PAL2:string;
+  P_Address1:string;
+  P_Address2:string;
   P_Landmark: string;
   P_City : string;
   P_State : string;
@@ -38,5 +39,5 @@ export class RegisterinfoModule {
   NetBanking : string;
   AccountType : string;
   Branch_Name : string;
-  A_Status: string;
+  Status: string;
  }

@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   svc: LoginService;
   log= new LogininfoModule;
   model:any=[];
+  
   constructor(svc: LoginService) { 
     this.svc=svc;
   }

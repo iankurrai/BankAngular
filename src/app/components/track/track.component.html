@@ -1,0 +1,7 @@
+<p>track works!</p>
+
+<form #form="ngForm" (ngSubmit)=TrackStatus(form)>
+   Track <input type="text" name="track" [(ngModel)]="model.track" #track="ngModel">
+   <button type="submit">Track</button>
+
+</form>
