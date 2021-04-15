@@ -11,6 +11,7 @@ import { UserinfoComponent } from './components/userinfo/userinfo.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { TrackComponent } from './components/track/track.component';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
 {path: 'userinfo', component:UserinfoComponent},
 {path:'aboutus', component:AboutusComponent},
 {path:'contact', component:ContactComponent},
-{path:'track', component:TrackComponent}
+{path:'track', component:TrackComponent},
+{path: 'resetpassword', component:ResetpasswordComponent}
 
 
 

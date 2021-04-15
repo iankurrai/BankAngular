@@ -23,6 +23,8 @@ import { UserinfoComponent } from './components/userinfo/userinfo.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { TrackComponent } from './components/track/track.component';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
+import { VirtualkeyboardComponent } from './components/virtualkeyboard/virtualkeyboard.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { TrackComponent } from './components/track/track.component';
     AboutusComponent,
     ContactComponent,
     TrackComponent,
+    ResetpasswordComponent,
+    VirtualkeyboardComponent,
   ],
   imports: [
     BrowserModule,

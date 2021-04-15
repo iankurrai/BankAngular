@@ -64,7 +64,7 @@ export class OpenaccountComponent implements OnInit {
     this.svc.RegisterCustomer(this.reg).subscribe((data:number)=>
 
     {
-      alert(data);
+     // alert(data);
       if(data!=0)
       {
         this.acc_no=data;

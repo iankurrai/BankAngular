@@ -20,6 +20,7 @@
     "@angular/platform-browser": "~11.2.4",
     "@angular/platform-browser-dynamic": "~11.2.4",
     "@angular/router": "~11.2.4",
+    "angular-virtual-keyboard": "^0.4.3",
     "bootstrap": "^4.6.0",
     "firebase": "^8.4.1",
     "rxjs": "~6.6.0",
