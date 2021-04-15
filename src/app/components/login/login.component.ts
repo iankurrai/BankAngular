@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import{FormsModule,NgForm, FormGroup} from '@angular/forms';
 import{LoginService} from '../../services/login.service';
 import{LogininfoModule} from '../../modules/logininfo/logininfo.module';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,21 +12,47 @@ export class LoginComponent implements OnInit {
   svc: LoginService;
   log= new LogininfoModule;
   model:any=[];
+  name: string;
+  pwd: string;
+  router:Router;
+  ngzone: NgZone;
   
-  constructor(svc: LoginService) { 
+  constructor(svc: LoginService, router: Router, ngzone : NgZone) { 
     this.svc=svc;
+    this.router=router;
+    this.ngzone=ngzone;
   }
-
-
 
   ngOnInit(): void {
   }
   RegisterData(loginform:NgForm):void
   {
-    this.log.User_Id = this.model.name;
-    this.log.Login_Password = this.model.pwd;
-    this.svc.Login(this.log.User_Id,this.log.Login_Password).subscribe((data:string)=>{
-      alert(data);
-    })
+    console.log(loginform.value);
+
+    
+
+      this.name=loginform.value.name;
+
+      this.pwd=loginform.value.pwd;
+
+      sessionStorage.setItem('USERNAME',this.name);
+
+      this.svc.Login(this.name,this.pwd).subscribe((data:String)=>{
+
+        console.log(data);
+
+        alert(data);
+
+        if(data=="Login Successful")
+
+        {
+          this.ngzone.run(()=>this.router.navigateByUrl("/userdashboard"));
+          alert("Hello");
+        }
+
+       
+
+      });
+    
   }
 }

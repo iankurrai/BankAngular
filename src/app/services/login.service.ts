@@ -23,5 +23,18 @@ httpOptions={headers : new HttpHeaders({
    Login(name:string,pwd:string):Observable<string>{
     return this.http.get<string>(this.url+"/"+"Login"+"/"+name+"/"+pwd);
   }
+  Logout(id:string):Observable<string>{
 
-}
+    return this.http.get<string>(this.url+"/UserLogout/"+id,this.httpOptions);
+
+  }
+  ResetPassword(Acc_No:number,Login_Pass:string,Tran_Pass:string):Observable<string>{
+    return this.http.get<string>(this.url+"/UserResetPassword/"+Acc_No+"/"+Login_Pass+"/"+Tran_Pass,this.httpOptions);
+    }
+    ResetPasswordByID(User_id:string,Login_Pass:string,Tran_Pass:string):Observable<string>{
+    return this.http.get<string>(this.url+"/ResetPassByID/"+User_id+"/"+Login_Pass+"/"+Tran_Pass,this.httpOptions);
+    }
+    GenerateOTP(Acc_No:number):Observable<string>{
+      return this.http.get<string>(this.url+"/GenerateOTP/"+Acc_No,this.httpOptions);
+    }
+  }

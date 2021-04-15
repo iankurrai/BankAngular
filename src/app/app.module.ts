@@ -25,6 +25,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { TrackComponent } from './components/track/track.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { VirtualkeyboardComponent } from './components/virtualkeyboard/virtualkeyboard.component';
+import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
+import { OtpComponent } from './components/otp/otp.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { VirtualkeyboardComponent } from './components/virtualkeyboard/virtualke
     TrackComponent,
     ResetpasswordComponent,
     VirtualkeyboardComponent,
+    UserdashboardComponent,
+    OtpComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,7 @@ import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { TrackComponent } from './components/track/track.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
+import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
 
 
 const routes: Routes = [
@@ -26,9 +27,8 @@ const routes: Routes = [
 {path:'aboutus', component:AboutusComponent},
 {path:'contact', component:ContactComponent},
 {path:'track', component:TrackComponent},
-{path: 'resetpassword', component:ResetpasswordComponent}
-
-
+{path: 'resetpassword', component:ResetpasswordComponent},
+{path:'userdashboard', component:UserdashboardComponent}
 
 ];
 @NgModule({
