@@ -69,24 +69,25 @@ export class OpenaccountComponent implements OnInit {
       {
         this.acc_no=data;
         alert("New Customer Registered");
-        localStorage.setItem('ACC_NO',data.toString());
+        console.log( this.acc_no);
+        // localStorage.setItem('ACC_NO',data.toString());
         // this.ngzone.run(()=>this.router.navigateByUrl('/track'));
+        this.svc.GenerateRefID(this.acc_no).subscribe((data:string)=>{
+          if(data!="Error Occurerd during RefID generation. Contact Admin for more details..")
+          {
+            alert("Your details have been sent for approval\n Your Ref ID is :  "+ data + "\n Please save it for tracking your Application " );
+            // localStorage.removeItem('ACC_NO')
+          }
+          else{
+            alert(data);
+          }
+        });
       }
       else{
-        console.log(accountform.value);
+        alert("ERROR");
       }
     });
-    //  alert(localStorage.getItem('ACC_NO'));
-     this.acc_no=parseInt(localStorage.getItem('ACC_NO'));
-    this.svc.GenerateRefID(this.acc_no).subscribe((data:string)=>{
-      if(data!="Error Occurerd during RefID generation. Contact Admin for more details..")
-      {
-        alert("Your details have been sent for approval\n Your Ref ID is :  "+ data + "\n Please save it for tracking your Application " );
-      }
-      else{
-        alert(data);
-      }
-    });
+    
   }
 
 PermanentAddress(event)

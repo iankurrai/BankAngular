@@ -13,6 +13,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { TrackComponent } from './components/track/track.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
+import { OtpComponent } from './components/otp/otp.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
 {path:'contact', component:ContactComponent},
 {path:'track', component:TrackComponent},
 {path: 'resetpassword', component:ResetpasswordComponent},
-{path:'userdashboard', component:UserdashboardComponent}
+{path:'userdashboard', component:UserdashboardComponent},
+{path:'otp', component:OtpComponent}
 
 ];
 @NgModule({

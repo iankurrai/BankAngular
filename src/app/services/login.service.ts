@@ -34,7 +34,7 @@ httpOptions={headers : new HttpHeaders({
     ResetPasswordByID(User_id:string,Login_Pass:string,Tran_Pass:string):Observable<string>{
     return this.http.get<string>(this.url+"/ResetPassByID/"+User_id+"/"+Login_Pass+"/"+Tran_Pass,this.httpOptions);
     }
-    GenerateOTP(Acc_No:number):Observable<string>{
+    GenerateOTP(Acc_No:string):Observable<string>{
       return this.http.get<string>(this.url+"/GenerateOTP/"+Acc_No,this.httpOptions);
     }
   }
