@@ -17,6 +17,8 @@ import { OtpComponent } from './components/otp/otp.component';
 import { BeneficiaryComponent } from './components/beneficiary/beneficiary.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { ResetbyacComponent } from './components/resetbyac/resetbyac.component';
+import { GetallcustomerssComponent } from './components/getallcustomerss/getallcustomerss.component';
+import { GetallcustomersbyaccnoComponent } from './components/getallcustomersbyaccno/getallcustomersbyaccno.component';
 
 
 const routes: Routes = [
@@ -36,7 +38,9 @@ const routes: Routes = [
 {path:'otp', component:OtpComponent},
 {path:'beneficiary', component:BeneficiaryComponent},
 {path:'transaction', component:TransactionComponent},
-{path:'resetbyaccount', component:ResetbyacComponent}
+{path:'resetbyaccount', component:ResetbyacComponent},
+{path:'getallregistrations',component:GetallcustomerssComponent},
+{path:'getallregistrationsbyaccno', component:GetallcustomersbyaccnoComponent}
 
 ];
 @NgModule({

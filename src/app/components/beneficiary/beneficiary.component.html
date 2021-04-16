@@ -15,6 +15,15 @@
                 <span class="validation" *ngIf="BenaccNo.errors?.pattern">Invalid Account Number</span>
               </span>
             </div>
+
+            <div class="form-group">
+              <label for="useraccno">Your Account Number</label>
+              <input type="text" class="form-control" name="useraccno" id="useraccno" aria-describedby="emailHelp" [(ngModel)]="model.useraccno" #useraccno="ngModel" placeholder="Enter Your Account Number" pattern="^[0-9]{7}" maxlength="7" required readonly>
+              <span *ngIf="beneficiary.submitted && useraccno.invalid">
+                <span class="validation" *ngIf="useraccno.errors?.required">Field cannot be blank</span>
+                <span class="validation" *ngIf="useraccno.errors?.pattern">Invalid Account Number</span>
+              </span>
+            </div>
             <div class="form-group">
               <label for="BenName">Beneficiary Name</label>
               <input type="text" class="form-control" name="BenName" id="BenName" [(ngModel)]="model.BenName" #BenName="ngModel" placeholder="Enter Beneficiary Name" required>

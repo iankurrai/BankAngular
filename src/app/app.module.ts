@@ -4,6 +4,10 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
+import { RecaptchaModule,RecaptchaFormsModule } from "ng-recaptcha";
+import { NgxCaptchaModule } from 'ngx-captcha';
+
+
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -29,8 +33,10 @@ import { UserdashboardComponent } from './components/userdashboard/userdashboard
 import { OtpComponent } from './components/otp/otp.component';
 import { BeneficiaryComponent } from './components/beneficiary/beneficiary.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
-import { NgxCaptchaModule } from 'ngx-captcha';
 import { ResetbyacComponent } from './components/resetbyac/resetbyac.component';
+import { GetallcustomerssComponent } from './components/getallcustomerss/getallcustomerss.component';
+import { GetallcustomersbyaccnoComponent } from './components/getallcustomersbyaccno/getallcustomersbyaccno.component';
+
 
 
 @NgModule({
@@ -54,6 +60,8 @@ import { ResetbyacComponent } from './components/resetbyac/resetbyac.component';
     BeneficiaryComponent,
     TransactionComponent,
     ResetbyacComponent,
+    GetallcustomerssComponent,
+    GetallcustomersbyaccnoComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +72,9 @@ import { ResetbyacComponent } from './components/resetbyac/resetbyac.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
-    NgxCaptchaModule
+    NgxCaptchaModule,
+    RecaptchaModule,
+    RecaptchaFormsModule
  
   
   ],

@@ -3,6 +3,7 @@ import { FormsModule, NgForm, FormGroup } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
 import { LogininfoModule } from '../../modules/logininfo/logininfo.module';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -28,7 +29,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
-
   }
 
   RegisterData(loginform: NgForm): void {
@@ -40,18 +40,20 @@ export class LoginComponent implements OnInit {
 
     sessionStorage.setItem('USERNAME', this.name);
 
-    this.svc.Login(this.name, this.pwd).subscribe((data: String) => {
+    this.svc.Login(this.name, this.pwd).subscribe((data: string) => {
 
       console.log(data);
 
       // alert(data);
 
-      if (data == "Login Successful") {
-        this.ngzone.run(() => this.router.navigateByUrl("/userdashboard"));
-        alert("Hello");
-      }
+      if (data == "No Account found with requested UserID"||data=="Invalid Credentials"|| data=="Your account has been locked. Kindly reset your password for reactivation") {
+        alert(data);
+        }
        else{
-         alert(data);
+         alert("Login Successfull");
+         sessionStorage.setItem('ACC_NO',data);
+         this.ngzone.run(() => this.router.navigateByUrl("/userdashboard"));
+
        }     
     });
 
