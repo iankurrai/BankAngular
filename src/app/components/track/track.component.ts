@@ -31,9 +31,9 @@ export class TrackComponent implements OnInit {
     
   }
 
-  TrackStatus(form : NgForm) : void{
-    console.log(form.value);
-    this.reference_id = form.value.track;
+  TrackStatus(formt : NgForm) : void{
+    console.log(formt.value);
+    this.reference_id = formt.value.track;
     this.svc1.TrackRefID(this.reference_id).subscribe((data:string)=>{
       if(data!="null")
         alert("Your Account status is: " +data);

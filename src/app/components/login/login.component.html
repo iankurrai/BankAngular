@@ -8,24 +8,36 @@
       <div class="col-md-12">
         <i class="fas fa-lock center login-icon"> User Login</i>
         <hr class="my-4 horizontal">
-        <form #loginform="ngForm" name="loginform" (ngSubmit)="RegisterData(loginform)">   
+        <form #loginform="ngForm" name="form"(ngSubmit)=" loginform.form.valid && RegisterData(loginform)">   
            <div class="form-group">
-            <label for="email">User ID</label>
+            <label for="userid">User ID</label>
             <!-- <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" [(ngModel)]="email.email" #email="ngModel" placeholder="Enter email" required autofocus> -->
-            <input type="email" name="name" class="form-control" [(ngModel)]="model.name" placeholder="Enter User ID" required>
-
+            <input type="text" name="userid" class="form-control" id="userid" [(ngModel)]="model.userid" #userid="ngModel" placeholder="Enter User ID" required>
+            <span *ngIf="loginform.submitted && userid.invalid">
+              <span style="color:red;" *ngIf="userid.errors?.required">Field cannot be blank</span>
+            </span>
             <small id="emailHelp" class="form-text text-muted">We'll never share your User ID with anyone else.</small>
           </div>
           <div class="form-group">
             <label for="password">Password</label>
             <!-- <input type="password" class="form-control" name="password" id="password" [(ngModel)]="password" #password="ngModel" placeholder="Password" required> -->
-            <input type="password" name="pwd" class="form-control" [(ngModel)]="model.pwd" placeholder="Enter Password" required>
-
+            <input type="password" name="password" id="password" class="form-control" [(ngModel)]="model.password" #password="ngModel" placeholder="Enter Password" required>
+            <span *ngIf="loginform.submitted && password.invalid">
+              <span style="color:red;" *ngIf="password.errors?.required">Field cannot be blank</span>
+            </span>
           </div>
+          <div>
+
+         <!-- <ngx-recaptcha2 #captchaElem
+          [siteKey]="siteKey" 
+        >
+        </ngx-recaptcha2> -->
+      
+      </div><br>
           <div class ="button">
-          <button type="submit" class="btn btn-primary">Submit</button><br><br>
+          <button type="submit" class="btn btn-primary">Login</button><br><br>
           <div> <a routerLink="'/openaccount"> First Time User? Register Here</a></div><br>
-          <div> <a routerLink="/resetpassword"> Forgot Password</a></div><br>
+          <div> <a routerLink="/resetbyaccount"> Forgot Password</a></div><br>
           <div> <a routerLink="/openaccount" class="link-primary"> Forgot User ID</a></div><br>
         </div>
 

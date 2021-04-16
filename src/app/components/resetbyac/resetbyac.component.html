@@ -10,12 +10,12 @@
               <table>
                 <tr>
                   <div class="form-group">
-                    <td><label for="userid">User ID</label></td>
+                    <td><label for="userid">Account Number</label></td>
                   </div>
                 </tr>
                 <tr>
                   <div class="form-group">
-                    <td class="field"><input type="text" onClick= "check()" class="form-control" name="userid" id="userid" aria-describedby="emailHelp" [(ngModel)]="admin.userid" #userid="ngModel" placeholder="Enter User ID" required autofocus></td>
+                    <td class="field"><input type="text" onClick= "check()" class="form-control" name="userid" id="userid" aria-describedby="emailHelp" [(ngModel)]="admin.userid" #userid="ngModel" placeholder="Enter Account Number" required autofocus></td>
                   </div>
                 </tr>
                 <span *ngIf="forgotPassword.submitted && userid.invalid">

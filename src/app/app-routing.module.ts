@@ -14,6 +14,9 @@ import { TrackComponent } from './components/track/track.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
 import { OtpComponent } from './components/otp/otp.component';
+import { BeneficiaryComponent } from './components/beneficiary/beneficiary.component';
+import { TransactionComponent } from './components/transaction/transaction.component';
+import { ResetbyacComponent } from './components/resetbyac/resetbyac.component';
 
 
 const routes: Routes = [
@@ -30,7 +33,10 @@ const routes: Routes = [
 {path:'track', component:TrackComponent},
 {path: 'resetpassword', component:ResetpasswordComponent},
 {path:'userdashboard', component:UserdashboardComponent},
-{path:'otp', component:OtpComponent}
+{path:'otp', component:OtpComponent},
+{path:'beneficiary', component:BeneficiaryComponent},
+{path:'transaction', component:TransactionComponent},
+{path:'resetbyaccount', component:ResetbyacComponent}
 
 ];
 @NgModule({

@@ -16,7 +16,7 @@ ngzone:NgZone;
 router:Router;
 OTP_User:string;
 Code: string;
-acc_no:string;
+acc_no:number;
 login_pass:string;
 trans_pass:string;
 model:any=[];
@@ -57,17 +57,19 @@ pauseTimer() {
   }
   OTP_check(otpform:NgForm){
     this.Code=localStorage.getItem('OTP');
-    this.acc_no=localStorage.getItem('ACC');
+    this.acc_no=parseInt(localStorage.getItem('ACC'));
     this.login_pass=localStorage.getItem('LOGIN');
     this.trans_pass=localStorage.getItem('TRANSACT');
 
-    this.OTP_User=otpform.value.OTP_No;
+    this.OTP_User=otpform.value.OTP_NO;
     if(this.OTP_User==this.Code){
       alert("Successful");
-      this.svc.ResetPasswordByID(this.acc_no,this.login_pass,this.trans_pass).subscribe((data:string)=>
+
+      this.svc.ResetPassword (this.acc_no,this.login_pass,this.trans_pass).subscribe((data:string)=>
       {
         alert(data);
       });
+      this.pauseTimer();
     }
     else{
       alert("Invalid OTP");

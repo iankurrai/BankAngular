@@ -1,15 +1,16 @@
 import { Component, OnInit,NgZone } from '@angular/core';
-import {FormsModule, NgForm, FormGroup} from '@angular/forms';
+import {FormsModule, NgForm, FormGroup, NumberValueAccessor} from '@angular/forms';
 import{LoginService} from '../../services/login.service';
 import{LogininfoModule} from '../../modules/logininfo/logininfo.module';
 import {Router}from '@angular/router';
 import{timer} from 'rxjs';
+
 @Component({
-  selector: 'app-resetpassword',
-  templateUrl: './resetpassword.component.html',
-  styleUrls: ['./resetpassword.component.css']
+  selector: 'app-resetbyac',
+  templateUrl: './resetbyac.component.html',
+  styleUrls: ['./resetbyac.component.css']
 })
-export class ResetpasswordComponent implements OnInit {
+export class ResetbyacComponent implements OnInit {
   timeLeft: number = 60;
   interval;
   subscribeTimer: any;
@@ -48,12 +49,11 @@ export class ResetpasswordComponent implements OnInit {
   Acc_No:number;
   Code:string;
   OTP_User:string;
-  acc_no:string;
+  acc_no:number;
   login_pass:string;
   trans_pass:string;
   c_login_pass:string;
   c_trans_pass:string;
-  code:string;
   ForgotPass(forgotPassword:NgForm){
     this.c_login_pass=forgotPassword.value.confirmLogin;
     this.c_trans_pass=forgotPassword.value.confirmTransact;
@@ -75,26 +75,27 @@ export class ResetpasswordComponent implements OnInit {
     //   {
     //     alert(data);
     //   });
+    this.svc.GenerateOTP(this.acc_no).subscribe((data:string)=>
+    {
+      if(data=="false"){
+        alert("Error Occurred");
+      }
+      else{
+        this.Code=data;
+        console.log(this.Code);
+        localStorage.setItem('OTP',this.Code);
+        localStorage.setItem('ACC', (this.acc_no).toString());
+        localStorage.setItem('LOGIN',this.login_pass);
+        localStorage.setItem('TRANSACT',this.trans_pass);
 
 
-//     this.svc.GenerateOTP(this.acc_no).subscribe((data:string)=>
-//     {
-//       if(data=="false"){
-//         alert("Error Occurred");
-//       }
-//       else{
-//         this.Code=data;
-//         localStorage.setItem('OTP',this.code);
-//         localStorage.setItem('ACC',this.acc_no);
-//         localStorage.setItem('LOGIN',this.login_pass);
-//         localStorage.setItem('TRANSACT',this.trans_pass);
-
-
-//         alert("OTP sent successfully");
-//       // this.startTimer();
-//       }
-//     });
-    // this.ngzone.run(()=>this.router.navigateByUrl("/otp"));
+        alert("OTP sent successfully");
+        // this.startTimer();
+      }
+    });
+    this.ngzone.run(()=>this.router.navigateByUrl("/otp"));
     }
   }
 }
+
+

@@ -27,6 +27,11 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
 import { VirtualkeyboardComponent } from './components/virtualkeyboard/virtualkeyboard.component';
 import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
 import { OtpComponent } from './components/otp/otp.component';
+import { BeneficiaryComponent } from './components/beneficiary/beneficiary.component';
+import { TransactionComponent } from './components/transaction/transaction.component';
+import { NgxCaptchaModule } from 'ngx-captcha';
+import { ResetbyacComponent } from './components/resetbyac/resetbyac.component';
+
 
 @NgModule({
   declarations: [
@@ -46,6 +51,9 @@ import { OtpComponent } from './components/otp/otp.component';
     VirtualkeyboardComponent,
     UserdashboardComponent,
     OtpComponent,
+    BeneficiaryComponent,
+    TransactionComponent,
+    ResetbyacComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +63,8 @@ import { OtpComponent } from './components/otp/otp.component';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    NgxCaptchaModule
  
   
   ],

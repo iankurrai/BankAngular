@@ -14,6 +14,10 @@
             <div class="form-group">
               <label for="OTP_NO">OTP</label>
               <input type="text" class="form-control" name="OTP_NO" id="OTP_NO" aria-describedby="emailHelp" [(ngModel)]="model.OTP_NO" #OTP_NO="ngModel" placeholder="Enter OTP" required autofocus>
+            <span *ngIf="otpform.submitted && OTP_NO.invalid">
+              <span *ngIf="OTP_NO.errors?.required"style="color:red;">Field cannot be blank</span>
+          </span>
+            
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form><br>
