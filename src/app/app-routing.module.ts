@@ -19,6 +19,9 @@ import { TransactionComponent } from './components/transaction/transaction.compo
 import { ResetbyacComponent } from './components/resetbyac/resetbyac.component';
 import { GetallcustomerssComponent } from './components/getallcustomerss/getallcustomerss.component';
 import { GetallcustomersbyaccnoComponent } from './components/getallcustomersbyaccno/getallcustomersbyaccno.component';
+import { ApprovalComponent } from './components/approval/approval.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { InsertBranchComponent } from './components/insert-branch/insert-branch.component';
 
 
 const routes: Routes = [
@@ -40,7 +43,10 @@ const routes: Routes = [
 {path:'transaction', component:TransactionComponent},
 {path:'resetbyaccount', component:ResetbyacComponent},
 {path:'getallregistrations',component:GetallcustomerssComponent},
-{path:'getallregistrationsbyaccno', component:GetallcustomersbyaccnoComponent}
+{path:'getallregistrationsbyaccno', component:GetallcustomersbyaccnoComponent},
+{path:'approval', component: ApprovalComponent},
+{ path:'modal',component:ModalComponent},
+{path:'branchdetails', component:InsertBranchComponent}
 
 ];
 @NgModule({

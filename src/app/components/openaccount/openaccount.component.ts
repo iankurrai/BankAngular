@@ -3,6 +3,8 @@ import {FormsModule, NgForm, FormGroup} from '@angular/forms';
 import{RegisterService} from '../../services/register.service';
 import{RegisterinfoModule} from '../../modules/registerinfo/registerinfo.module';
 import {Router} from '@angular/router';
+import {IfscModule} from '../../modules/ifsc/ifsc.module';
+import { AdminService } from 'src/app/services/admin.service';
 @Component({
   selector: 'app-openaccount',
   templateUrl: './openaccount.component.html',
@@ -11,18 +13,25 @@ import {Router} from '@angular/router';
 export class OpenaccountComponent implements OnInit {
   customer : any = [];
   svc: RegisterService;
+  svc1:AdminService;
   reg= new RegisterinfoModule();
+  ifsc: IfscModule[];
   acc_no : number;
   ngzone: NgZone;
   router: Router;
 
-  constructor(svc:RegisterService, ngzone:NgZone, router:Router) {
+  constructor(svc:RegisterService,svc1:AdminService, ngzone:NgZone, router:Router) {
     this.svc = svc;
+    this.svc1 = svc1;
     this.ngzone=ngzone;
     this.router=router;
    }
 
   ngOnInit(): void {
+    this.svc1.GetIfsc().subscribe((data:IfscModule[])=>{
+      this.ifsc=data;
+      console.log(this.ifsc);
+    });
   }
 
   RegisterData(accountform : NgForm) : void
@@ -87,7 +96,8 @@ export class OpenaccountComponent implements OnInit {
         alert("ERROR");
       }
     });
-    
+           this.ngzone.run(()=>this.router.navigateByUrl('/track'));
+ 
   }
 
 PermanentAddress(event)

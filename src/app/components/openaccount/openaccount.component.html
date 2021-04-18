@@ -484,8 +484,10 @@
                     <tr>
                         <td><label for="branchName" class="header">Branch Name<span class="required-validation">*</span></label></td>
                         <td class="field">
-                            <input type="text" name="branchName" [(ngModel)]="customer.branchName" id="branchName" #branchName = "ngModel" placeholder="Enter Branch Name" required>
-                        </td>
+                            <!-- <input type="text" name="branchName" [(ngModel)]="customer.branchName" id="branchName" #branchName = "ngModel" placeholder="Enter Branch Name" required> -->
+                            <select name="branchName" [(ngModel)]="customer.branchName" id="branchName" #branchName = "ngModel" required>
+                                <option *ngFor="let item of ifsc" value={{item.Branch_Name}}>{{item.Branch_Name}}</option>
+                            </select>
                         <!-- <td></td> -->
                         <span *ngIf="accountform.submitted && branchName.invalid">
                         <span class="validation" *ngIf="branchName.errors?.required">Field cannot be empty</span>
