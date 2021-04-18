@@ -22,6 +22,9 @@ import { GetallcustomersbyaccnoComponent } from './components/getallcustomersbya
 import { ApprovalComponent } from './components/approval/approval.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { InsertBranchComponent } from './components/insert-branch/insert-branch.component';
+import { AccountdetailsComponent } from './components/accountdetails/accountdetails.component';
+import { AccountstatementComponent } from './components/accountstatement/accountstatement.component';
+import { AccountsummaryComponent } from './components/accountsummary/accountsummary.component';
 
 
 const routes: Routes = [
@@ -46,7 +49,10 @@ const routes: Routes = [
 {path:'getallregistrationsbyaccno', component:GetallcustomersbyaccnoComponent},
 {path:'approval', component: ApprovalComponent},
 { path:'modal',component:ModalComponent},
-{path:'branchdetails', component:InsertBranchComponent}
+{path:'branchdetails', component:InsertBranchComponent},
+{path: 'accountdetails', component:AccountdetailsComponent},
+{path: 'accountstatement', component:AccountstatementComponent},
+{path: 'accountsummary', component:AccountsummaryComponent}
 
 ];
 @NgModule({

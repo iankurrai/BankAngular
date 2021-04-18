@@ -17,14 +17,14 @@ export class LoginComponent implements OnInit {
   pwd: string;
   router: Router;
   ngzone: NgZone;
-  // siteKey: string;
+  siteKey: string;
 
 
   constructor(svc: LoginService, router: Router, ngzone: NgZone) {
     this.svc = svc;
     this.router = router;
     this.ngzone = ngzone;
-    // this.siteKey = "6LdGUKsaAAAAAJbyzTnHPqp9SnhFrdEZDDRBvXCW";
+    this.siteKey = "6LdGUKsaAAAAAJbyzTnHPqp9SnhFrdEZDDRBvXCW";
   }
 
   ngOnInit(): void {

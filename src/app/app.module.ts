@@ -41,6 +41,9 @@ import { ModalComponent } from './components/modal/modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import{DatePipe} from '@angular/common';
 import { InsertBranchComponent } from './components/insert-branch/insert-branch.component';
+import { AccountdetailsComponent } from './components/accountdetails/accountdetails.component';
+import { AccountstatementComponent } from './components/accountstatement/accountstatement.component';
+import { AccountsummaryComponent } from './components/accountsummary/accountsummary.component';
 
 
 
@@ -71,6 +74,9 @@ import { InsertBranchComponent } from './components/insert-branch/insert-branch.
     ApprovalComponent,
     ModalComponent,
     InsertBranchComponent,
+    AccountdetailsComponent,
+    AccountstatementComponent,
+    AccountsummaryComponent,
   ],
   imports: [
     BrowserModule,

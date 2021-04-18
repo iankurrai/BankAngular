@@ -25,28 +25,20 @@
             <span *ngIf="loginform.submitted && password.invalid">
               <span style="color:red;" *ngIf="password.errors?.required">Field cannot be blank</span>
             </span>
-          </div>
-          <div class="row">
-            <label for="captchaInput">Enter Captcha</label>
-            <div class="form-group col-md-6">
-              <input type="text" class="form-control" id="captcha" readonly>
-            </div>
-            <div class=" form-group col-md-6">
-              <input type="text" class="form-control" id="captchaInput">
-            </div>
-          </div>
+          </div><br>
           
-         <!-- <ngx-recaptcha2 #captchaElem
+          
+         <ngx-recaptcha2 #captchaElem
           [siteKey]="siteKey" 
         >
-        </ngx-recaptcha2> -->
+        </ngx-recaptcha2> 
       
      
           <div class ="button">
           <button onclick="validcap()" type="submit" class="btn btn-primary">Login</button><br><br>
-          <div> <a routerLink="'/openaccount"> First Time User? Register Here</a></div><br>
+          <div> <a routerLink="/resetbyaccount"> First Time User? Register Here</a></div><br>
           <div> <a routerLink="/resetbyaccount"> Forgot Password</a></div><br>
-          <div> <a routerLink="/openaccount" class="link-primary"> Forgot User ID</a></div><br>
+          <div> <a routerLink="" class="link-primary"> Forgot User ID</a></div><br>
         </div>
 
         </form>  

@@ -1,4 +1,5 @@
 <app-header></app-header>
+<a routerLink="/userdashboard"><i class="fas fa-arrow-circle-left back-icon fa-2x"></i></a>
 
   <div id="admin-login">
     <div class="login-details">
@@ -15,8 +16,9 @@
                 </span>
             </div>
             <div class="form-group">
-              <label for="BenaccNo">Beneficiary Account Number</label>
+                <label for="BenaccNo">Beneficiary Account Number</label>
               <input type="text" class="form-control" name="BenaccNo" id="BenaccNo" aria-describedby="emailHelp" [(ngModel)]="model.BenaccNo" #BenaccNo="ngModel" placeholder="Enter Beneficiary Account Number" required>
+              <a routerLink="/beneficiary">Add a Beneficiary</a>
                 <span *ngIf="transferform.submitted && BenaccNo.invalid">
                     <span class="validation" *ngIf="BenaccNo.errors?.required">Field cannot be blank</span>
                 </span>
