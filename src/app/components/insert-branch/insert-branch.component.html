@@ -22,7 +22,7 @@
             <div class="form-group">
               <label for="IFSC_Code">IFSC Code</label>
               <!-- <input type="IFSC_Code" class="form-control" name="IFSC_Code" id="IFSC_Code" [(ngModel)]="IFSC_Code" #IFSC_Code="ngModel" placeholder="IFSC_Code" required> -->
-              <input type="text" #IFSC_Code ="ngModel"name="IFSC_Code" class="form-control" [(ngModel)]="model.IFSC_Code" placeholder="Enter IFSC Code" required>
+              <input type="text" #IFSC_Code ="ngModel"name="IFSC_Code" class="form-control" [(ngModel)]="model.IFSC_Code" placeholder="Enter IFSC Code"  maxlength="11" required>
               <span *ngIf="branchform.submitted && IFSC_Code.invalid">
                   <span style="color:red;" *ngIf="IFSC_Code.errors?.required">Field cannot be blank</span>
                 </span> <br>

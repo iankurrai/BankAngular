@@ -11,4 +11,10 @@ $(function(){
     
     var maxDate = year + '-' + month + '-' + day;
     $('#dob').attr('max', maxDate);
+
+    $('#startdate').attr('max', maxDate);
+    $('#enddate').attr('max', maxDate);
+
+
+
     });

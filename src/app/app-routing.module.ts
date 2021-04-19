@@ -29,6 +29,7 @@ import { TransotpComponent } from './components/transotp/transotp.component';
 
 
 const routes: Routes = [
+{ path: '', pathMatch: 'full', redirectTo: '/home'},
 {path : 'openaccount', component:OpenaccountComponent},
 {path : 'login', component:LoginComponent},
 {path : 'home', component:HomeComponent},

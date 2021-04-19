@@ -88,12 +88,20 @@ this.AccountType=item.AccountType;
 this.Branch_Name=item.Branch_Name;
 this.MobNo=item.MobNo;
 }
-
 Approve(){
   this.svc.AdminApprovals(this.Acc_No).subscribe((data:boolean)=>{
+    console.log(this.Acc_No);
 console.log(data);
 if(data ==true){
   alert("Approved");
+  this.svc.GenerateApprovalMail(this.Acc_No).subscribe((data:boolean)=>{
+    if(data == true){
+            alert("Mail Sent Successfully");
+    }
+    else{
+      alert("Error Occured");
+    }
+  });
 }
 else{
   alert("Error Occured");

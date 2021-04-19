@@ -55,9 +55,11 @@
             </div>
             <div class="form-group">
               <label for="IFSC">IFSC Code</label>
-              <input type="text" class="form-control" name="IFSC" id="IFSC" [(ngModel)]="model.IFSC" #IFSC="ngModel" placeholder="Enter IFSC Code" required>
+              <input type="text" maxlength="11"  class="form-control" name="IFSC" id="IFSC" [(ngModel)]="model.IFSC" #IFSC="ngModel" placeholder="Enter IFSC Code" required>
               <span *ngIf="beneficiary.submitted && IFSC.invalid">
                 <span class="validation" *ngIf="IFSC.errors?.required">Field cannot be blank</span>
+                                <span class="validation" *ngIf="IFSC.errors?.required">Field cannot be blank</span>
+
               </span>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>

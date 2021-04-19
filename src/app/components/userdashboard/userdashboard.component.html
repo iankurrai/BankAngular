@@ -9,7 +9,7 @@
     <div class="login-details">
       <div class="row">
         <div class="col-md-12">
-          <i class="fas fa-user center login-icon"> Welcome, User</i>
+          <i class="fas fa-user center login-icon" *ngFor="let item of sum"> Welcome, {{item.Fname + " " + item.Lname}}</i>
           <hr class="my-4 horizontal">
           <div class="row">
             <div class="col-md-4">

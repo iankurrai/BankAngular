@@ -7,6 +7,9 @@ import{RegisterinfoModule} from '../modules/registerinfo/registerinfo.module';
 import {IfscModule} from '../modules/ifsc/ifsc.module';
 import { BeneficiaryModule } from '../modules/beneficiary/beneficiary.module';
 import { TransferdetailsModule } from '../modules/transferdetails/transferdetails.module';
+import{TransactionModule} from '../modules/transaction/transaction.module';
+import { StatementModule } from '../modules/statement/statement.module';
+import { SummaryModule } from '../modules/summary/summary.module';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +17,7 @@ export class AdminService {
 reg: RegisterinfoModule;
 http:HttpClient;
 ifsc:IfscModule;
+statement :StatementModule;
 url:string="http://localhost:49597/api/AdminAPI";
 httpOptions={headers : new HttpHeaders({
   'Content-Type':'application/json'
@@ -73,6 +77,21 @@ return this.http.get<boolean>(this.url+"/BalanceUpdateSuccess/"+Tran_ID,this.htt
 }
 FundsFailed(Tran_ID:string):Observable<boolean>{
 return this.http.get<boolean>(this.url+"/BalanceUpdateUnsuccess/"+Tran_ID,this.httpOptions);
+}
+Get_Trans(Acc_No:number):Observable<TransactionModule[]>{
+
+  return this.http.get<TransactionModule[]>(this.url+"/GetAllTrans/"+ Acc_No,this.httpOptions);
+
+}
+Get_statement(Acc_No:number, startdate:string, enddate:string):Observable<StatementModule[]>{
+  return this.http.get<StatementModule[]>(this.url +"/"+"Accountstatement"+ "/"+ Acc_No+ "/" + startdate + "/" + enddate, this.httpOptions);
+}
+GetSummaryDetails(Acc_No:number):Observable<SummaryModule[]>{
+  return this.http.get<SummaryModule[]>(this.url + "/"+"GetSummaryDetails"+ "/" + Acc_No, this.httpOptions);
+}
+
+GenerateApprovalMail(Acc_No:number):Observable<boolean>{
+  return this.http.get<boolean>(this.url+"/MailDefaultPass/"+Acc_No,this.httpOptions);
 }
 
 }

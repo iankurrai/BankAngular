@@ -26,10 +26,9 @@ Tran_ID:string;
     this.router=router;
     this.ngzone=ngzone;
    }
-
   ngOnInit(): void {
-    this.no=parseInt(sessionStorage.getItem('ACC_NO'));
-    this.svc.Get_Ben(this.no).subscribe((data:BeneficiaryModule[])=>{
+    this.model.accNo=parseInt(sessionStorage.getItem('ACC_NO'));
+    this.svc.Get_Ben(this.model.accNo).subscribe((data:BeneficiaryModule[])=>{
       this.ben=data;
     });
   }

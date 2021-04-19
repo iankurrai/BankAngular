@@ -10,7 +10,7 @@
           <form name="form" #transferform="ngForm" (ngSubmit)="transferform.form.valid && Transfer(transferform)">
             <div class="form-group">
               <label for="accNo">Account Number</label>
-              <input type="text" class="form-control" name="accNo" id="accNo" aria-describedby="emailHelp" [(ngModel)]="model.accNo" #accNo="ngModel" placeholder="Enter Account Number" required autofocus>
+              <input type="text"  disabled class="form-control" name="accNo" id="accNo" aria-describedby="emailHelp" [(ngModel)]="model.accNo" #accNo="ngModel" placeholder="Enter Account Number" required autofocus>
                 <span *ngIf="transferform.submitted && accNo.invalid">
                     <span class="validation" *ngIf="accNo.errors?.required">Field cannot be blank</span>
                 </span>

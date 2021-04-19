@@ -86,6 +86,8 @@ export class OpenaccountComponent implements OnInit {
           {
             alert("Your details have been sent for approval\n Your Ref ID is :  "+ data + "\n Please save it for tracking your Application " );
             // localStorage.removeItem('ACC_NO')
+            this.ngzone.run(()=>this.router.navigateByUrl('/track'));
+
           }
           else{
             alert(data);
@@ -96,7 +98,6 @@ export class OpenaccountComponent implements OnInit {
         alert("ERROR");
       }
     });
-           this.ngzone.run(()=>this.router.navigateByUrl('/track'));
  
   }
 

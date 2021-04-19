@@ -22,7 +22,6 @@ RegisterData(beneficiary:NgForm):void{
   console.log(beneficiary.value);
   this.ben.Ben_AccNo=parseInt(beneficiary.value.BenaccNo);
   this.ben.User_AccNo=parseInt(sessionStorage.getItem('ACC_NO'));
-  alert(this.ben.User_AccNo);
   this.ben.Ben_Name=beneficiary.value.BenName;
   this.ben.Ben_NickName=beneficiary.value.BenNickname;
   this.ben.Ben_Banktype=beneficiary.value.bankType;
@@ -30,7 +29,7 @@ RegisterData(beneficiary:NgForm):void{
   console.log(this.ben);
 
 this.svc.InsertBen(this.ben).subscribe((data: boolean)=>{
-  alert(data);
+  alert("Beneficiary Added Successfully");
 });
   
 }
