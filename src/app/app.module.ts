@@ -44,6 +44,7 @@ import { InsertBranchComponent } from './components/insert-branch/insert-branch.
 import { AccountdetailsComponent } from './components/accountdetails/accountdetails.component';
 import { AccountstatementComponent } from './components/accountstatement/accountstatement.component';
 import { AccountsummaryComponent } from './components/accountsummary/accountsummary.component';
+import { TransotpComponent } from './components/transotp/transotp.component';
 
 
 
@@ -77,6 +78,7 @@ import { AccountsummaryComponent } from './components/accountsummary/accountsumm
     AccountdetailsComponent,
     AccountstatementComponent,
     AccountsummaryComponent,
+    TransotpComponent,
   ],
   imports: [
     BrowserModule,

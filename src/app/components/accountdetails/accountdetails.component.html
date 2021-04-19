@@ -8,39 +8,38 @@
           <i class="fas fa-user center login-icon"> Welcome, Abhishek Jain</i>
           <hr class="my-4 horizontal"><br>
           <table class="table table-striped table-hover">
-            <tbody>
+            <tbody *ngFor="let item of reg">
               <tr>
                 <th scope="col">Account Number</th>
-                <td scope="row">{{Acc_No}}</td>
+                <td scope="row">{{item.Acc_No}}</td>
               </tr>
 
  
 
               <tr>
                 <th scope="col">Account Holder's Name</th>
-                <td scope="row">{{Fname}}</td>
+                <td scope="row">{{item.Fname}}</td>
               </tr>
 
- 
 
               <tr>
                 <th scope="col">Mobile Number</th>
-                <td scope="row">{{Mob_No}}</td>
+                <td scope="row">{{item.MobNo}}</td>
               </tr>
               <tr>
                 <th scope="col">Email Address</th>
-                <td scope="row">{{Email}}</td>
+                <td scope="row">{{item.Email}}</td>
               </tr>
               <tr>
                 <th scope="col">Aadhar Number</th>
-                <td scope="row">{{Aadhar_No}}</td>
+                <td scope="row">{{item.Aadhar_No}}</td>
               </tr>
 
  
 
               <tr>
                 <th scope="col">Address</th>
-                <td scope="row">{{P_Address1}}</td>
+                <td scope="row">{{item.P_Address1 +" " + item.P_Address2}}</td>
               </tr>
 
  
@@ -48,7 +47,7 @@
 
               <tr>
                 <th scope="col">Account Type</th>
-                <td scope="row">{{AccountType}}</td>
+                <td scope="row">{{item.AccountType}}</td>
               </tr>
 
  

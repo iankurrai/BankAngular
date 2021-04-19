@@ -25,6 +25,7 @@ import { InsertBranchComponent } from './components/insert-branch/insert-branch.
 import { AccountdetailsComponent } from './components/accountdetails/accountdetails.component';
 import { AccountstatementComponent } from './components/accountstatement/accountstatement.component';
 import { AccountsummaryComponent } from './components/accountsummary/accountsummary.component';
+import { TransotpComponent } from './components/transotp/transotp.component';
 
 
 const routes: Routes = [
@@ -52,7 +53,8 @@ const routes: Routes = [
 {path:'branchdetails', component:InsertBranchComponent},
 {path: 'accountdetails', component:AccountdetailsComponent},
 {path: 'accountstatement', component:AccountstatementComponent},
-{path: 'accountsummary', component:AccountsummaryComponent}
+{path: 'accountsummary', component:AccountsummaryComponent},
+{path: 'transotp', component:TransotpComponent}
 
 ];
 @NgModule({

@@ -2,6 +2,7 @@ import { Component, OnInit , NgZone} from '@angular/core';
 import{FormsModule,NgForm, FormGroup} from '@angular/forms';
 import{LoginService} from '../../services/login.service';
 import{LogininfoModule} from '../../modules/logininfo/logininfo.module';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-userdashboard',
   templateUrl: './userdashboard.component.html',
@@ -11,8 +12,9 @@ export class UserdashboardComponent implements OnInit {
  svc: LoginService;  
 log= new LogininfoModule; 
 ngzone: NgZone;
+router:Router;
 
-constructor(svc: LoginService) 
+constructor(svc: LoginService, router:Router, ngzone:NgZone) 
 {​​ 
   this.svc=svc;
 }​​  
@@ -30,12 +32,8 @@ Logout(form:NgForm)
   else      
    alert("Error");  
   }​​);   
- sessionStorage.removeItem('USERNAME');  }​​
-
-
-
- 
-
-
-
+ sessionStorage.removeItem('USERNAME');
+ sessionStorage.removeItem('ACC_NO');
+ this.ngzone.run(()=>this.router.navigateByUrl ("/login"));
+ }​​
 }
