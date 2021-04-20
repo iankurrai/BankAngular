@@ -39,7 +39,8 @@
                     <button type="submit" name="button" style="width:5rem; height:3rem; border-radius:10%;">Logout</button>
                 
                 </form>
-            </div>
+            </div><p class="logtime" *ngFor="let item of sum" style="color:#6e2945" ><b>Last Logged in : {{item.Session_Login| date: 'dd/MM/YYYY  hh:mm a'}}</b></p>
+
           </div>
         </div>
       </div>

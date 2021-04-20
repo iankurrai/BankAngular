@@ -93,7 +93,6 @@ count:number=0;
         if (data==true){
           alert("Successful");
           this.pauseTimer();
-          // this.ngzone.run(()=>this.router.navigateByUrl('/userdashboard'));
           document.getElementById("slip").removeAttribute("disabled");
         }
         else{

@@ -36,13 +36,18 @@
   
    
   
-  /* password reset section */
+  /* admin login section */
   #admin-login {
-    padding-top:10%;
-    padding-left: 30%;
-    padding-right: 30%;
-    padding-bottom: 10%;
-    position: relative;
+    padding: 10% 10% 20%;
+  }
+  
+   
+  
+  .back-icon {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    color: #6e2945;
   }
   
    
@@ -66,26 +71,10 @@
   button {
     background-color: #97144d!important;
     border: none!important;
-    margin-top: 2rem!important;
-    margin-bottom: 1rem!important;
-    width: 13rem;
-    height: 5rem;
-    color: #fff;
+    color: #fff!important;
   }
   
-  .logtime{
-    position:absolute;
-    top: -40px;
-    left: -350px;
-  }
    
-  
-  .logout {
-    position: absolute;
-    top: -80px;
-    left:900px;
-  }
-  
   
   /* Contact Us Section */
   #contactUs {
@@ -94,9 +83,8 @@
     color: #fff;
     padding: 2% 10% 1%;
     font-size: 1rem;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    
+   
   }
   
    
@@ -118,4 +106,6 @@
     box-shadow: 0px 3px 10px rgba(0,0,0,.25);
     margin-bottom: 4.5%;
   }
-   
+
+
+ 

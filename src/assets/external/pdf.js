@@ -7,6 +7,6 @@
             sessionStorage.removeItem('REMARKS');
             sessionStorage.removeItem('AMOUNT');
             sessionStorage.removeItem('TRAN_ID');
-            window.location.replace("/userdashboards")
+            window.location.replace("/userdashboard")
     }
     

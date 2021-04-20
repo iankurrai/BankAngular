@@ -29,13 +29,13 @@
                 <a class="nav-link" routerLink="/home">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">FAQ's</a>
+                <a class="nav-link" routerLink="/FAQ">FAQ's</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" routerLink="/aboutus">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Our Partners</a>
+                <a class="nav-link" href="https://www.larsentoubro.com/">Our Partners</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" routerLink="/contact">Contact Us</a>
@@ -131,7 +131,41 @@
     <img class="customerSlide" src="../../../assets/customer-care.jpg" alt="customer-care">
     <h1 class="center">We are here for you 24*7</h1>
     <h3 class="left-center">Bank online safely and securely from the comfort of your home.</h3>
-    <button type="button" class="btn btn-lg btn-danger left-bottom">Learn More</button>
+    <button type="button" class="btn btn-lg btn-danger left-bottom"(click)="openScrollableContent(content)">Learn More</button>
   </div>
-
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h3 class="modal-title" >We're enhancing your personal Internet Banking Experience!</h3>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body" >
+      <p>Your personal Internet Banking experience with FinTech Bank is evolving for the better future. Our new design makes it easier for you to manage your accounts and finances online with FinTech Bank.</p>
+      <h3>What's changing?</h3>
+      <ul>
+        <li>A simplified new design, based around you and your Banking needs!</li>
+        <li>Mobile and tablet friendly screens, allowing you to use Personal Internet Banking wherever you are.</li>
+        <li>Our new Internet Banking Homepage will show your refined account details with new look, allowing you to have a great experience.</li>
+        <li>Our new move, Money Feature will start to replace the traditional transfer options, making it simpler for you to move money between accounts and set up payments.</li>
+        <li>Our new Logon journey will be replacing the current one making it simpler and faster, whilst being just as secure as it has always been.</li>
+      </ul>
+      <h3>Need Help?</h3>
+      <ul>
+        <li>Visit our Contact page to speak to us over the phone for any enquiry.</li>
+      </ul>
+      <h3>What do you need to do?</h3>
+      <p>FinTech Bank's Internet Banking is quick, easy and secure, allowing you access to wide range of transactions such as utility Fund Transfer to your accounts in India, viewing E-Statements etc. mentioned below are the features and benefits of FinTech Bank's Internet Banking services.</p>
+      <ul>
+        <li>Complete control over Accounts.</li>
+        <li>View your Bank Account/ mini statements and transactions at your convenience.</li>
+        <li>Transfer Funds online to accounts with FinTech Bank and other banks in India.</li>
+        <li>Say goodbye to queues and missed dates, manage your account at the tip of finger.</li>
+      </ul>
+      <p>At FinTech Bank, we endeavour to ensure a secure environment for your Personal Internet Banking experience. A wide range of services are available to you through FinTech Bank's Internet Banking. Most of these services would be level of authentication using a secure device.
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
 <app-footer></app-footer>

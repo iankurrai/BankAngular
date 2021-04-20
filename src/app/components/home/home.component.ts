@@ -1,18 +1,22 @@
-import { Component } from '@angular/core';
-import { FirebaseService } from 'src/app/services/firebase.service';
+import { Component , ViewEncapsulation} from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  encapsulation: ViewEncapsulation.None,
+    styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
 
-  constructor (){}
+  constructor (private modalService: NgbModal){}
 
 
   ngOnInit(): void {}
 
+  openScrollableContent(content) {
+    this.modalService.open(content, { scrollable: true, size:'lg' });
 
+  }
 }

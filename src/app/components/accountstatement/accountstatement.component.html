@@ -15,9 +15,10 @@
                 <span style="color:red;" *ngIf="startdate.errors?.required">Field cannot be blank</span>
               </span>
             </div>
+          
             <div class="form-group">
               <label for="enddate"><b>End Date</b></label>
-              <input type="date" class="form-control" name="enddate" id="enddate" [(ngModel)]="user.enddate" #enddate="ngModel" required>
+              <input type="date" onclick="compareDate()" class="form-control" name="enddate" id="enddate" [(ngModel)]="user.enddate" #enddate="ngModel" required>
               <span *ngIf="statementform.submitted && enddate.invalid">
                 <span style="color:red;" *ngIf="enddate.errors?.required">Field cannot be blank</span>
               </span>
