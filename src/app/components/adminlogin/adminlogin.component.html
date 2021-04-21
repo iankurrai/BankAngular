@@ -1,97 +1,40 @@
 <app-header></app-header>
 
 
-
-
-  <div id="admin-login">
-    <div class="login-details">
-      <div class="row">
-        <div class="col-md-12">
-          <i class="fas fa-lock center login-icon"> High Secured Login</i>
-          <hr class="my-4 horizontal">
-          <form (ngSubmit)="adminlogin()">
-            <div class="form-group">
-              <label for="email">Email address</label>
-              <!-- <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" [(ngModel)]="email.email" #email="ngModel" placeholder="Enter email" required autofocus> -->
-              <input type="email" name="email" class="form-control" [(ngModel)]="email" placeholder="Enter email Id" required>
-
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <!-- <input type="password" class="form-control" name="password" id="password" [(ngModel)]="password" #password="ngModel" placeholder="Password" required> -->
-              <input type="password" name="password" class="form-control" [(ngModel)]="password" placeholder="Enter Password" required>
-
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <!-- <div class="register"><a href="#" routerLink="/register">New User Register</a></div> -->
-          </form>
+<div id="admin-login">
+  <div class="login-details">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fas fa-lock center login-icon"> Highly Secured Login</i>
+        <hr class="my-4 horizontal">
+        <form #loginform="ngForm" name="form"(ngSubmit)=" loginform.form.valid && RegisterData(loginform)" >   
+           <div class="form-group">
+            <label for="userid">PS Number</label>
+            <!-- <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" [(ngModel)]="email.email" #email="ngModel" placeholder="Enter email" required autofocus> -->
+            <input type="text" name="userid" class="form-control" id="userid" [(ngModel)]="model.userid" #userid="ngModel" placeholder="Enter PS Number" required>
+            <span *ngIf="loginform.submitted && userid.invalid">
+              <span style="color:red;" *ngIf="userid.errors?.required">Field cannot be blank</span>
+            </span>
+          </div>
           <div class="form-group">
-            <p *ngIf="errorMessage.length > 0" class="text-danger">
-                {{errorMessage}}</p>
+            <label for="password">Password</label>
+            <!-- <input type="password" class="form-control" name="password" id="password" [(ngModel)]="password" #password="ngModel" placeholder="Password" required> -->
+            <input type="password" name="password" id="password" class="form-control" [(ngModel)]="model.password" #password="ngModel" placeholder="Enter Password" required>
+            <span *ngIf="loginform.submitted && password.invalid">
+              <span style="color:red;" *ngIf="password.errors?.required">Field cannot be blank</span>
+            </span>
+          </div><br>
+                       
+          <div class ="button">
+          <button  type="submit" class="btn btn-primary">Login</button><br><br>
+          </div>
+          <a routerLink="/AdminPasswordReset"> Forgot Password</a>
+        </form>  
         
-            <p *ngIf="error.message.length > 0" class="text-danger">
-                {{error.message}} </p>
-        
-           
-        </div>
-        </div>
+      </div>
       </div>
     </div>
-  </div> 
+  </div>
 
-  
-
-
-
- <!--/////////////////////SANDNYA/////////////////////////////// -->
-
-  <!-- <div class="container">
-    <div class="row justify-content-center p-4">
-        
-        <div class="col-md-6">
-            <form (ngSubmit)="adminlogin()">
-            <h3>Firebase Login</h3>
-            <div class="form-group p-2">
-            <input type="email" name="email" class="form-control" [(ngModel)]="email" placeholder="Enter email Id" required>
-        </div>
-        <div class="form-group p-2">
-            <input type="password" name="password" class="form-control" [(ngModel)]="password" placeholder="Enter Password" required>
-        </div>
-        <div class="form-group p-2">
-            <button type="submit" class="btn btn-primary">Login</button>
-            <div class="register"><a href="#" routerLink="/register">New User Register</a></div>
-        </div>
-        </form>
-        <div class="form-group">
-            <p *ngIf="errorMessage.length > 0" class="text-danger">
-                {{errorMessage}}</p>
-        
-            <p *ngIf="error.message.length > 0" class="text-danger">
-                {{error.message}} </p>
-        
-           
-        </div>
-        </div>
-        
-    </div>
-</div>   
-/////////////////////////////////SANDNYA/////////////////////////////////////////////-->
 
 <app-footer></app-footer>
-<!-- <div id="contactUs">
-  <div class="row">
-    <div class="col-md-6">
-      <h2 class="header2">Get in touch with us now!</h2>
-    </div>
-    <div class="col-md-6">
-      <a href="https://twitter.com/lti_global?lang=en"><i class="fab social-icon fa-twitter fa-2x"></i></a>
-      <a href="https://www.facebook.com/LarsenToubroInfotech/"><i class="fab social-icon fa-facebook-f fa-2x" style="color: darkblue;"></i></a>
-      <a href="https://www.instagram.com/lti_global/?hl=en"><i class="fab social-icon fa-instagram fa-2x instagram"></i></a>
-      <a href="mailto: Abhishek.Jain@lntinfotech.com"><i class="fas social-icon fa-envelope fa-2x" style="color:white;"></i></a>
-      <a href="https://www.youtube.com/channel/UCr4-_QrHa_CCN872Cgi4D3Q"><i class="fab social-icon fa-youtube fa-2x" style="color:red;"></i></a>
-      <a href="https://www.linkedin.com/company/l&t-infotech/?originalSubdomain=in"><i class="fab social-icon fa-linkedin-in fa-2x"></i></a>
-      <p>© 2021 Fintech Group of Companies. Terms and Conditions applied.</p>
-    </div>
-  </div>
-</div> -->

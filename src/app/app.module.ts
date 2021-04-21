@@ -55,6 +55,7 @@ import { FAQComponent } from './components/faq/faq.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorComponent } from './components/error/error.component';
 import { AdmintransactionsComponent } from './components/admintransactions/admintransactions.component';
+import { AdminresetpassComponent } from './components/adminresetpass/adminresetpass.component';
 
 
 
@@ -92,6 +93,7 @@ import { AdmintransactionsComponent } from './components/admintransactions/admin
     FAQComponent,
     ErrorComponent,
     AdmintransactionsComponent,
+    AdminresetpassComponent,
   ],
   imports: [
     BrowserModule,

@@ -29,6 +29,7 @@ import { TransotpComponent } from './components/transotp/transotp.component';
 import { FAQComponent } from './components/faq/faq.component';
 import { ErrorComponent } from './components/error/error.component';
 import { AdmintransactionsComponent } from './components/admintransactions/admintransactions.component';
+import { AdminresetpassComponent } from './components/adminresetpass/adminresetpass.component';
 
 
 const routes: Routes = [
@@ -62,6 +63,7 @@ const routes: Routes = [
 {path: 'FAQ', component:FAQComponent},
 {path:'error', component:ErrorComponent},
 {path:'transactionsforAdmin', component:AdmintransactionsComponent},
+{path:"AdminPasswordReset", component:AdminresetpassComponent},
 { path: '**', redirectTo: '/error'}
 
 ];
