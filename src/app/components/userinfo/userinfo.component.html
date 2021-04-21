@@ -27,7 +27,11 @@
                         </div>
                         <div class="row center">
                           
-                          <div class="col-md-12 ">
+                          <div class="col-md-6 ">
+                            <a routerLink='/transactionsforAdmin'>
+                            <button class="button btn btn-primary" type="button" name="button" >View Transactions</button></a>
+                          </div>
+                          <div class="col-md-6 ">
                             <a routerLink='/branchdetails'>
                             <button class="button btn btn-primary" type="button" name="button">Add New Branch</button></a>
                           </div>
@@ -37,7 +41,7 @@
                   </div>
                 </div>
               </div>
-            <button class="b1 btn-danger" (click)="authservice.singout()">Logout</button>
+            <button class="b1 btn-danger" (click)="Logout()">Logout</button>
             
      
 <app-footer></app-footer>

@@ -487,7 +487,7 @@
                             <!-- <input type="text" name="branchName" [(ngModel)]="customer.branchName" id="branchName" #branchName = "ngModel" placeholder="Enter Branch Name" required> -->
                             <select name="branchName" [(ngModel)]="customer.branchName" id="branchName" #branchName = "ngModel" required>
                                 <option *ngFor="let item of ifsc" value={{item.Branch_Name}}>{{item.Branch_Name}}</option>
-                            </select>
+                            </select></td>
                         <!-- <td></td> -->
                         <span *ngIf="accountform.submitted && branchName.invalid">
                         <span class="validation" *ngIf="branchName.errors?.required">Field cannot be empty</span>
@@ -530,16 +530,5 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
   <script src="../../../assets/external/date.js" charset="utf-8"></script>
 
-<!-- <form>
-    <form name="form" #refform = "ngForm" (ngSubmit) = "Ref(refform)">
 
-        <button type="submit">Generate Ref ID </button>
-</form> -->
-<!-- [5:06 PM] Shama Mohammad
-function FillBilling(f) {​​
-  if(f.billingtoo.checked == true) {​​
-    f.billingname.value = f.shippingname.value;
-    f.billingcity.value = f.shippingcity.value;
-  }​​
-}​​ -->
 

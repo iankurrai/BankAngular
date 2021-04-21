@@ -4,7 +4,7 @@ import {AdminService} from '../../services/admin.service';
 import { NgForm,FormsModule,FormGroup } from '@angular/forms';
 import {Router} from '@angular/router';
 import {TransferdetailsModule} from '../../modules/transferdetails/transferdetails.module';
-import { formatDate } from '@angular/common';
+import { DatePipe, formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-transaction',
@@ -21,7 +21,9 @@ router:Router;
 no:number;
 Code:string;
 Tran_ID:string;
-  constructor(svc:AdminService,ngzone:NgZone,router:Router) {
+currentDate : any = new Date();
+maxDate:any;
+  constructor(svc:AdminService,ngzone:NgZone,router:Router, private datepipe:DatePipe) {
     this.svc=svc;
     this.router=router;
     this.ngzone=ngzone;
@@ -30,7 +32,22 @@ Tran_ID:string;
     this.model.accNo=parseInt(sessionStorage.getItem('ACC_NO'));
     this.svc.Get_Ben(this.model.accNo).subscribe((data:BeneficiaryModule[])=>{
       this.ben=data;
+      
     });
+    this.maxDate=this.currentDate.getDate();
+    console.log(this.maxDate);
+
+    this.maxDate=this.maxDate+14;
+    console.log(this.maxDate);
+
+    this.maxDate=new Date(this.maxDate);
+    console.log(this.maxDate);
+
+    this.maxDate=this.datepipe.transform(this.maxDate, "YYYY-MM-dd");
+    console.log(this.maxDate);
+    
+    this.currentDate = this.datepipe.transform(this.currentDate, "YYYY-MM-dd");
+    console.log(this.currentDate);
   }
 Transfer(transferform:NgForm):void{
   console.log(transferform.value);
@@ -46,7 +63,17 @@ Transfer(transferform:NgForm):void{
   sessionStorage.setItem('REMARKS',this.tdm.Remark);
   sessionStorage.setItem('AMOUNT', this.tdm.Amount.toString());
 
-  console.log(this.tdm);
+  console.log(this.tdm.Amount);
+  if(transferform.value.amount<=0 )
+  alert("Enter Appropriate Amount");
+  
+  else if ( transferform.value.amount >200000)
+  {
+      alert("Enter Appropriate Amount");
+  }
+  else
+  {
+ 
   this.svc.FundsTransfer(this.tdm).subscribe((data:string)=>
   {
     sessionStorage.setItem('TRAN_ID',data);
@@ -61,5 +88,5 @@ Transfer(transferform:NgForm):void{
         }
   });
 }
-
+}
 }

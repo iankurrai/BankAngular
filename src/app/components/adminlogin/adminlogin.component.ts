@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router'; 
+import {AdminService} from '../../services/admin.service';
+import {AdminModule} from '../../modules/admin/admin.module';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-adminlogin',
@@ -8,53 +10,36 @@ import { Router } from '@angular/router';
   styleUrls: ['./adminlogin.component.css']
 })
 export class AdminloginComponent implements OnInit {
-  email = "";
-  password = "";
-  errorMessage = ''; // validation error handle
-  error: { name: string, message: string } = { name: '', message: '' }; // for firbase error handle
-
-  constructor(private authservice: AuthService, private router: Router) { }
-
-  ngOnInit(): void {
-  }
-  clearErrorMessage() {
-    this.errorMessage = '';
-    this.error = { name: '', message: '' };
-  }
-
-  adminlogin()
-  {
-    this.clearErrorMessage();
-    if (this.validateForm(this.email, this.password)) {
-      this.authservice.loginWithEmail(this.email, this.password)
-        .then(() => {
-         this.router.navigate(['/userinfo'])
-        }).catch(_error => {
-          this.error = _error
-          this.router.navigate(['/adminlogin'])
-        })
-    }
+  
+  svc:AdminService;
+  admin = new AdminModule() ;
+  ngzone:NgZone;
+  router:Router;
+  model:any=[];
+  
+  constructor(svc:AdminService, ngzone:NgZone,router:Router) { 
+    this.svc=svc;
+    this.ngzone=ngzone;
+    this.router=router;
   }
 
-  validateForm(email, password) {
-    if (email.lenght === 0) {
-      this.errorMessage = "please enter email id";
-      return false;
-    }
+  ngOnInit(): void {}
 
-    if (password.lenght === 0) {
-      this.errorMessage = "please enter password";
-      return false;
-    }
+    RegisterData(loginform:NgForm): void{
+      console.log(loginform.value);
 
-    if (password.lenght < 6) {
-      this.errorMessage = "password should be at least 6 char";
-      return false;
-    }
+      this.admin.PSNo = loginform.value.userid;
 
-    this.errorMessage = '';
-    return true;
+      this.admin.Admin_Password = loginform.value.password;
+  
+      sessionStorage.setItem('USERNAME', this.admin.PSNo.toString());
+  
+      this.svc.Login_Admin(this.admin.PSNo, this.admin.Admin_Password).subscribe((data: string) => {
+  
+        console.log(data);
+        alert(data); 
+        this.ngzone.run(() => this.router.navigateByUrl("/userinfo"));
 
+  });
   }
-
 }

@@ -28,11 +28,13 @@
                 </tr>
                 <tr>
                   <div class="form-group">
-                    <td class="field"><input type="password" class="form-control" name="loginPassword" id="loginPassword" [(ngModel)]="admin.loginPassword" #loginPassword="ngModel" placeholder="Enter Login Password" required></td>
+                    <td class="field"><input type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%?&])[A-Za-z0-9@$!%?&]{6,}"
+                      class="form-control" name="loginPassword" id="loginPassword" [(ngModel)]="admin.loginPassword" #loginPassword="ngModel" placeholder="Enter Login Password" required></td>
                   </div>
                 </tr>
                 <span *ngIf="forgotPassword.submitted && loginPassword.invalid">
                   <span class="validation" *ngIf="loginPassword.errors?.required">Field cannot be blank</span>
+                  <span class="validation" *ngIf="loginPassword.errors?.pattern">Invalid Password Format</span>
                 </span>
                 <tr>
                   <div class="form-group">
@@ -55,11 +57,13 @@
                 </tr>
                 <tr>
                   <div class="form-group">
-                    <td class="field"><input type="password" class="form-control" name="transactPassword" id="transactPassword" [(ngModel)]="admin.transactPassword" #transactPassword="ngModel" placeholder="Enter Transaction Password" required></td>
+                    <td class="field"><input type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%?&])[A-Za-z0-9@$!%?&]{6,}"
+                     class="form-control" name="transactPassword" id="transactPassword" [(ngModel)]="admin.transactPassword" #transactPassword="ngModel" placeholder="Enter Transaction Password" required></td>
                   </div>
                 </tr>
                 <span *ngIf="forgotPassword.submitted && transactPassword.invalid">
                   <span class="validation" *ngIf="transactPassword.errors?.required">Field cannot be blank</span>
+                  <span class="validation" *ngIf="transactPassword.errors?.pattern">Invalid Password Format</span>
                 </span>
                 <tr>
                   <div class="form-group">

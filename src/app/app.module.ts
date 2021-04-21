@@ -19,6 +19,12 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 
 
+// import { MatDatepickerModule } from '@angular/material/datepicker';
+// import { MatNativeDateModule } from '@angular/material/core';
+// import { MatFormFieldModule } from '@angular/material/form-field';
+// import { MatInputModule } from '@angular/material/input';
+   
+
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AdminloginComponent } from './components/adminlogin/adminlogin.component';
@@ -45,6 +51,11 @@ import { AccountdetailsComponent } from './components/accountdetails/accountdeta
 import { AccountstatementComponent } from './components/accountstatement/accountstatement.component';
 import { AccountsummaryComponent } from './components/accountsummary/accountsummary.component';
 import { TransotpComponent } from './components/transotp/transotp.component';
+import { FAQComponent } from './components/faq/faq.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ErrorComponent } from './components/error/error.component';
+import { AdmintransactionsComponent } from './components/admintransactions/admintransactions.component';
+import { AdminresetpassComponent } from './components/adminresetpass/adminresetpass.component';
 
 
 
@@ -79,6 +90,10 @@ import { TransotpComponent } from './components/transotp/transotp.component';
     AccountstatementComponent,
     AccountsummaryComponent,
     TransotpComponent,
+    FAQComponent,
+    ErrorComponent,
+    AdmintransactionsComponent,
+    AdminresetpassComponent,
   ],
   imports: [
     BrowserModule,
@@ -92,7 +107,9 @@ import { TransotpComponent } from './components/transotp/transotp.component';
     NgxCaptchaModule,
     RecaptchaModule,
     RecaptchaFormsModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    
  
   
   ],

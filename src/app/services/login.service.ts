@@ -11,7 +11,7 @@ import {HttpHeaders} from '@angular/common/http';
 export class LoginService {
 log:LogininfoModule;
 http:HttpClient;
-url:string='http://localhost:49597/api/RegisterAPI';
+url:string='http://localhost:55175/api/RegisterAPI';
 httpOptions={headers : new HttpHeaders({
   'Content-Type':'application/json'
 })
@@ -37,4 +37,8 @@ httpOptions={headers : new HttpHeaders({
     GenerateOTP(Acc_No:number):Observable<string>{
       return this.http.get<string>(this.url+"/GenerateOTP/"+Acc_No,this.httpOptions);
     }
+    Get_Userid(Acc_No:number):Observable<boolean>{
+      return this.http.get<boolean>(this.url+"/"+ "ForgotUserID" +"/"+ Acc_No, this.httpOptions );
+    }
+
   }

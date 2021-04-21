@@ -11,10 +11,15 @@ $(function(){
     
     var maxDate = year + '-' + month + '-' + day;
     $('#dob').attr('max', maxDate);
-
     $('#startdate').attr('max', maxDate);
     $('#enddate').attr('max', maxDate);
 
-
-
     });
+
+function compareDate(){
+    
+    var StartDate = document.getElementById("startdate").value;
+    console.log(StartDate);
+    document.getElementById("enddate").setAttribute("min", StartDate);
+    console.log(document.getElementById("enddate").value);
+}

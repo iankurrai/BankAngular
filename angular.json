@@ -35,7 +35,8 @@
               "src/assets/external/index.js",
               "src/assets/validation.js",
               "src/assets/external/date.js",
-              "src/assets/external/captcha.js"
+              "src/assets/external/captcha.js",
+              "src/assets/external/filter.js"
             
             ]
           },
@@ -98,7 +99,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              
             ],
             "scripts": []
           }

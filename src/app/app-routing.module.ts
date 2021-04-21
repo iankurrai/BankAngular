@@ -26,6 +26,10 @@ import { AccountdetailsComponent } from './components/accountdetails/accountdeta
 import { AccountstatementComponent } from './components/accountstatement/accountstatement.component';
 import { AccountsummaryComponent } from './components/accountsummary/accountsummary.component';
 import { TransotpComponent } from './components/transotp/transotp.component';
+import { FAQComponent } from './components/faq/faq.component';
+import { ErrorComponent } from './components/error/error.component';
+import { AdmintransactionsComponent } from './components/admintransactions/admintransactions.component';
+import { AdminresetpassComponent } from './components/adminresetpass/adminresetpass.component';
 
 
 const routes: Routes = [
@@ -55,7 +59,12 @@ const routes: Routes = [
 {path: 'accountdetails', component:AccountdetailsComponent},
 {path: 'accountstatement', component:AccountstatementComponent},
 {path: 'accountsummary', component:AccountsummaryComponent},
-{path: 'transotp', component:TransotpComponent}
+{path: 'transotp', component:TransotpComponent},
+{path: 'FAQ', component:FAQComponent},
+{path:'error', component:ErrorComponent},
+{path:'transactionsforAdmin', component:AdmintransactionsComponent},
+{path:"AdminPasswordReset", component:AdminresetpassComponent},
+{ path: '**', redirectTo: '/error'}
 
 ];
 @NgModule({

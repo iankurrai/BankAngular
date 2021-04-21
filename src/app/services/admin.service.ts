@@ -18,7 +18,7 @@ reg: RegisterinfoModule;
 http:HttpClient;
 ifsc:IfscModule;
 statement :StatementModule;
-url:string="http://localhost:49597/api/AdminAPI";
+url:string="http://localhost:55175/api/AdminAPI";
 httpOptions={headers : new HttpHeaders({
   'Content-Type':'application/json'
 })
@@ -94,4 +94,18 @@ GenerateApprovalMail(Acc_No:number):Observable<boolean>{
   return this.http.get<boolean>(this.url+"/MailDefaultPass/"+Acc_No,this.httpOptions);
 }
 
+Get_AllTransactions():Observable<TransferdetailsModule[]>{
+  return this.http.get<TransferdetailsModule[]>(this.url +"/Get_AllTransactions/" ,this.httpOptions);
+}
+
+Login_Admin(PSNo:number,pwd:string):Observable<string>{
+  return this.http.get<string>(this.url+"/AdminLogin/"+PSNo+"/"+pwd,this.httpOptions);
+ }
+
+ Logout_Admin(PSNo:number):Observable<string>{
+  return this.http.get<string>(this.url+"/AdminLogout/"+PSNo,this.httpOptions);
+}
+ResetPassword_Admin(PSNo:number,Login_Pass:string):Observable<string>{
+  return this.http.get<string>(this.url+"/AdminReset/"+PSNo+"/"+Login_Pass,this.httpOptions);
+  }
 }
