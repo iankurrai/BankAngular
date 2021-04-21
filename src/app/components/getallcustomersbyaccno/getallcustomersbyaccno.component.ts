@@ -1,18 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit,ViewChild,ViewEncapsulation } from '@angular/core';
 import {RegisterinfoModule} from '../../modules/registerinfo/registerinfo.module';
 import {AdminService}from '../../services/admin.service';
 import {FormsModule,NgForm,FormGroup} from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import{DatePipe} from '@angular/common';
 @Component({
   selector: 'app-getallcustomersbyaccno',
   templateUrl: './getallcustomersbyaccno.component.html',
+  encapsulation: ViewEncapsulation.None,
+
   styleUrls: ['./getallcustomersbyaccno.component.css']
 })
 export class GetallcustomersbyaccnoComponent implements OnInit {
 svc:AdminService;
 reg=new RegisterinfoModule();
+// reg1:RegisterinfoModule;
 model:any=[];
 accno: number;
-  constructor(svc:AdminService) { 
+cus:any=[];
+  constructor(svc:AdminService,private modalService: NgbModal,private datepipe:DatePipe) { 
     this.svc=svc;
     
   }
@@ -46,6 +52,7 @@ accno: number;
   AccountType : string;
   Branch_Name : string;
   Status: string;
+  
   ngOnInit(): void {
   }
   
@@ -61,7 +68,8 @@ accno: number;
       this.MobNo=data.MobNo;
       this.Email=data.Email;
       this.Aadhar_No=data.Aadhar_No;
-      this.DOB=data.DOB;
+      this.DOB = this.datepipe.transform(data.DOB,'dd/MM/YYYY');
+      console.log(this.DOB);
       this.P_Address1=data.P_Address1+","+data.P_Address2;
       // this.P_Address2=data.P_Address2;
       this.P_Landmark=data.Landmark;
@@ -77,4 +85,33 @@ accno: number;
       this.Branch_Name=data.Branch_Name;
     }) ;
   }
-}
+
+  openScrollableContent(longContent) {
+    this.modalService.open(longContent, { scrollable: true });
+  
+  }
+  UpdateCustomer():void{
+    this.reg.Acc_No=this.Acc_No;
+    this.Ref_ID=this.Ref_ID;
+    this.reg.Fname= this.Fname;
+    this.reg.Lname=this.model.Lname;
+    this.reg.Mname=this.model.Mname;
+    this.reg.MobNo=this.model.MobNo;
+    this.reg.Email=this.model.Email;
+    this.reg.Aadhar_No=this.model.Aadhar_No;
+    this.reg.DOB=this.model.DOB;
+    this.reg.P_Address1=this.model.P_Address1;
+    this.reg.P_Landmark=this.model.P_Landmark;
+    this.reg.P_State=this.model.P_State;
+    this.reg.P_City=this.model.P_City;
+    this.reg.P_Pincode=this.P_Pincode;
+    this.reg.OccupationType=this.model.OccupationType;
+    this.svc.UpdateCustomer(this.reg.Acc_No,this.reg).subscribe((data:boolean)=>{
+      console.log(data);
+      if(data==true){
+        alert(" Updated");}
+    })
+
+
+  }
+  }

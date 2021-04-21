@@ -36,6 +36,16 @@ import { TransactionComponent } from './components/transaction/transaction.compo
 import { ResetbyacComponent } from './components/resetbyac/resetbyac.component';
 import { GetallcustomerssComponent } from './components/getallcustomerss/getallcustomerss.component';
 import { GetallcustomersbyaccnoComponent } from './components/getallcustomersbyaccno/getallcustomersbyaccno.component';
+import { ApprovalComponent } from './components/approval/approval.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import{DatePipe} from '@angular/common';
+import { InsertBranchComponent } from './components/insert-branch/insert-branch.component';
+import { AccountdetailsComponent } from './components/accountdetails/accountdetails.component';
+import { AccountstatementComponent } from './components/accountstatement/accountstatement.component';
+import { AccountsummaryComponent } from './components/accountsummary/accountsummary.component';
+import { TransotpComponent } from './components/transotp/transotp.component';
+
 
 
 
@@ -62,6 +72,13 @@ import { GetallcustomersbyaccnoComponent } from './components/getallcustomersbya
     ResetbyacComponent,
     GetallcustomerssComponent,
     GetallcustomersbyaccnoComponent,
+    ApprovalComponent,
+    ModalComponent,
+    InsertBranchComponent,
+    AccountdetailsComponent,
+    AccountstatementComponent,
+    AccountsummaryComponent,
+    TransotpComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,12 +91,13 @@ import { GetallcustomersbyaccnoComponent } from './components/getallcustomersbya
     AngularFirestoreModule,
     NgxCaptchaModule,
     RecaptchaModule,
-    RecaptchaFormsModule
+    RecaptchaFormsModule,
+    NgbModule
  
   
   ],
  
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

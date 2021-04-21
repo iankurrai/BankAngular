@@ -19,9 +19,17 @@ import { TransactionComponent } from './components/transaction/transaction.compo
 import { ResetbyacComponent } from './components/resetbyac/resetbyac.component';
 import { GetallcustomerssComponent } from './components/getallcustomerss/getallcustomerss.component';
 import { GetallcustomersbyaccnoComponent } from './components/getallcustomersbyaccno/getallcustomersbyaccno.component';
+import { ApprovalComponent } from './components/approval/approval.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { InsertBranchComponent } from './components/insert-branch/insert-branch.component';
+import { AccountdetailsComponent } from './components/accountdetails/accountdetails.component';
+import { AccountstatementComponent } from './components/accountstatement/accountstatement.component';
+import { AccountsummaryComponent } from './components/accountsummary/accountsummary.component';
+import { TransotpComponent } from './components/transotp/transotp.component';
 
 
 const routes: Routes = [
+{ path: '', pathMatch: 'full', redirectTo: '/home'},
 {path : 'openaccount', component:OpenaccountComponent},
 {path : 'login', component:LoginComponent},
 {path : 'home', component:HomeComponent},
@@ -40,7 +48,14 @@ const routes: Routes = [
 {path:'transaction', component:TransactionComponent},
 {path:'resetbyaccount', component:ResetbyacComponent},
 {path:'getallregistrations',component:GetallcustomerssComponent},
-{path:'getallregistrationsbyaccno', component:GetallcustomersbyaccnoComponent}
+{path:'getallregistrationsbyaccno', component:GetallcustomersbyaccnoComponent},
+{path:'approval', component: ApprovalComponent},
+{ path:'modal',component:ModalComponent},
+{path:'branchdetails', component:InsertBranchComponent},
+{path: 'accountdetails', component:AccountdetailsComponent},
+{path: 'accountstatement', component:AccountstatementComponent},
+{path: 'accountsummary', component:AccountsummaryComponent},
+{path: 'transotp', component:TransotpComponent}
 
 ];
 @NgModule({

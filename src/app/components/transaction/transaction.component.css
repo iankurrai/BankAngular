@@ -40,6 +40,13 @@
       color:red;
   }
   
+  .back-icon {
+    position: absolute;
+    color: #6e2945;
+    top: 100px;
+    left: 100px;
+  }
+  
   .login-icon {
     width: 100%;
     text-align: center;

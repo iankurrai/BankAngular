@@ -1,4 +1,5 @@
 <app-header></app-header>
+<a routerLink="/userdashboard"><i class="fas fa-arrow-circle-left back-icon fa-2x"></i></a>
 
   <div id="admin-login">
     <div class="login-details">
@@ -9,21 +10,27 @@
           <form name="form" #transferform="ngForm" (ngSubmit)="transferform.form.valid && Transfer(transferform)">
             <div class="form-group">
               <label for="accNo">Account Number</label>
-              <input type="text" class="form-control" name="accNo" id="accNo" aria-describedby="emailHelp" [(ngModel)]="model.accNo" #accNo="ngModel" placeholder="Enter Account Number" required autofocus>
+              <input type="text"  disabled class="form-control" name="accNo" id="accNo" aria-describedby="emailHelp" [(ngModel)]="model.accNo" #accNo="ngModel" placeholder="Enter Account Number" required autofocus>
                 <span *ngIf="transferform.submitted && accNo.invalid">
                     <span class="validation" *ngIf="accNo.errors?.required">Field cannot be blank</span>
                 </span>
             </div>
             <div class="form-group">
-              <label for="BenaccNo">Beneficiary Account Number</label>
-              <input type="text" class="form-control" name="BenaccNo" id="BenaccNo" aria-describedby="emailHelp" [(ngModel)]="model.BenaccNo" #BenaccNo="ngModel" placeholder="Enter Beneficiary Account Number" required>
+                <label for="BenaccNo">Beneficiary Account Number</label>
+              <!-- <input type="text" class="form-control" name="BenaccNo" id="BenaccNo" aria-describedby="emailHelp" [(ngModel)]="model.BenaccNo" #BenaccNo="ngModel" placeholder="Enter Beneficiary Account Number" required> -->
+              <select class = "form-control" name="BenaccNo" [(ngModel)]="model.BenaccNo" #BenaccNo="ngModel" required>
+                <option *ngFor="let item of ben" value={{item.Ben_AccNo}}>{{item.Ben_Name}}</option>
+            </select>
+             
+             
+              <a routerLink="/beneficiary">Add a Beneficiary</a>
                 <span *ngIf="transferform.submitted && BenaccNo.invalid">
                     <span class="validation" *ngIf="BenaccNo.errors?.required">Field cannot be blank</span>
                 </span>
             </div>
             <div class="form-group">
               <label for="tranType">Transaction Type</label>
-              <select class="form-control" name="tranType" [(ngModel)]="model.tranType" #tranType="ngModel" id="tranType" required>
+              <select class="form-control" onClick = "currentDateTime()" name="tranType" [(ngModel)]="model.tranType" #tranType="ngModel" id="tranType" required>
                 <option value="" selected="selected" disabled="disabled">Select One</option>
                 <option value="IMPS">IMPS</option>
                 <option value="NEFT">NEFT</option>
@@ -43,7 +50,7 @@
             </div>
             <div class="form-group">
               <label for="amount">Amount</label>
-              <input type="text" class="form-control" name="amount" id="amount" aria-describedby="emailHelp" [(ngModel)]="model.amount" #amount="ngModel" placeholder="Enter Amount" pattern="^[0-9]" required>
+              <input type="number" class="form-control" name="amount" id="amount" aria-describedby="emailHelp" [(ngModel)]="model.amount" #amount="ngModel" placeholder="Enter Amount"  required>
               <span *ngIf="transferform.submitted && amount.invalid">
                   <span class="validation" *ngIf="amount.errors?.required">Field cannot be blank</span>
                   <span class="validation" *ngIf="amount.errors?.pattern">Invalid Amount</span>
@@ -55,7 +62,7 @@
       </div>
     </div>
   </div>
-
+<script src = "../../../assets/external/maturity.js"></script>
 <app-footer></app-footer>
 
 

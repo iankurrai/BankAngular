@@ -25,7 +25,7 @@ httpOptions={headers : new HttpHeaders({
   }
   Logout(id:string):Observable<string>{
 
-    return this.http.get<string>(this.url+"/UserLogout/"+id,this.httpOptions);
+    return this.http.get<string>(this.url+"/Logout/"+id,this.httpOptions);
 
   }
   ResetPassword(Acc_No:number,Login_Pass:string,Tran_Pass:string):Observable<string>{

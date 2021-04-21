@@ -45,6 +45,13 @@
     letter-spacing: 1px;
   }
    
+  .back-icon {
+    position: absolute;
+    color: #6e2945;
+    top: 100px;
+    left: 100px;
+  }
+  
   .horizontal {
     background-color: #97144d;
     height: 1.5px;
