@@ -84,7 +84,7 @@ count:number=0;
   
   OTP_check(form1:NgForm){
     this.OTP_User=form1.value.OTP_NO;
-    if(this.count<3)
+    if(this.count<2)
     {
       if(this.OTP_User==this.Code)
       {

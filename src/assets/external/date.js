@@ -18,6 +18,7 @@ $(function(){
 
 function compareDate(){
     
+    
     var StartDate = document.getElementById("startdate").value;
     console.log(StartDate);
     document.getElementById("enddate").setAttribute("min", StartDate);

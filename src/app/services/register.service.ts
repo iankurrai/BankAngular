@@ -12,7 +12,7 @@ import { BeneficiaryModule } from '../modules/beneficiary/beneficiary.module';
 export class RegisterService {
   reg: RegisterinfoModule;
   http: HttpClient;
-  url:string = 'http://localhost:55175/api/RegisterAPI';
+  url:string = 'http://localhost:10382/api/RegisterAPI';
   httpOptions={headers : new HttpHeaders({
     'Content-Type':'application/json'
   })

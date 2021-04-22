@@ -11,7 +11,7 @@ import {HttpHeaders} from '@angular/common/http';
 export class LoginService {
 log:LogininfoModule;
 http:HttpClient;
-url:string='http://localhost:55175/api/RegisterAPI';
+url:string='http://localhost:10382/api/RegisterAPI';
 httpOptions={headers : new HttpHeaders({
   'Content-Type':'application/json'
 })

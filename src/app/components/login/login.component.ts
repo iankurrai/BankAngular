@@ -3,6 +3,8 @@ import { FormsModule, NgForm, FormGroup } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
 import { LogininfoModule } from '../../modules/logininfo/logininfo.module';
 import { Router } from '@angular/router';
+import { AdminService } from 'src/app/services/admin.service';
+import { AdminModule } from 'src/app/modules/admin/admin.module';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +14,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   svc: LoginService;
   log = new LogininfoModule;
+  svc1 : AdminService;
   model: any = [];
   name: string;
   pwd: string;
@@ -19,10 +22,11 @@ export class LoginComponent implements OnInit {
   ngzone: NgZone;
 
 
-  constructor(svc: LoginService, router: Router, ngzone: NgZone) {
+  constructor(svc: LoginService, svc1:AdminService, router: Router, ngzone: NgZone) {
     this.svc = svc;
     this.router = router;
     this.ngzone = ngzone;
+    this.svc1 = svc1;
     
   }
 
@@ -51,6 +55,9 @@ export class LoginComponent implements OnInit {
        else{
          alert("Login Successfull");
          sessionStorage.setItem('ACC_NO',data);
+         this.svc1.Session_login(parseInt(data)).subscribe((data1:boolean)=>{
+          console.log(data1);
+         })
          this.ngzone.run(() => this.router.navigateByUrl("/userdashboard"));
 
        }     

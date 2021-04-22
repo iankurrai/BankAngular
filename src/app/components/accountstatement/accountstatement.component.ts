@@ -37,7 +37,7 @@ console.log(this.startdate);
         alert("No transaction records found for specified dates");
       }
       else{
-        alert("Hi")
+        
       this.statement=data;
       
       }

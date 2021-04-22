@@ -37,20 +37,23 @@
                 <th scope="col">Withdraw</th>
                 <th scope="col">Deposit</th>
                 <th scope="col">Balance</th>
+                <th scope="col">Status</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let item of statement">
+              <tr *ngFor="let item of statement" style="text-align: center;">
                 <th scope="row">{{item.TransactionID}}</th>
                 <td>{{item.Acc_No}}</td>
                 <td>{{item.Transaction_date | date:'dd/MM/yyyy'}}</td>
                 <td>{{item.Ben_AccNo}}</td>
                 <td>{{item.Ben_Name}}</td>
                 <td>{{item.Transaction_Type}}</td>
-                 <td style="color: red;font-size: 15px;" ><i class="fas fa-rupee-sign" > </i> {{item.Withdraw}}</td>
-                <td style ="color:green; font-size: 15px;" ><i class="fas fa-rupee-sign" ></i> {{item.Deposit}}</td>
-                <td style ="color: black; font-size: 15px;" ><i class="fas fa-rupee-sign" ></i> {{item.Balance}}</td>
-                </tr>
+                
+                 <td style="color: red;font-size: 15px; text-align: left;" ><i class="fas fa-rupee-sign" > </i> {{item.Withdraw}}</td>
+                <td style ="color:green; font-size: 15px;text-align: left;" ><i class="fas fa-rupee-sign" ></i> {{item.Deposit}}</td>
+                <td style ="color: black; font-size: 15px;text-align: left;" ><i class="fas fa-rupee-sign" ></i> {{item.Balance}}</td>
+                <td>{{item.status}}</td>  
+              </tr>
             </tbody> 
           </table>
         </div>

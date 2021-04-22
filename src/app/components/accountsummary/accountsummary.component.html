@@ -21,7 +21,7 @@
             <div class="col-md-8">
               <table class="table table-striped table-hover">
                 <thead>
-                  <tr>
+                  <tr style="text-align: center;">
                     <th scope="col">Transaction ID</th>
                     <th scope="col">To Account</th>
                     <th scope="col">Transaction Type</th>
@@ -31,13 +31,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let item of tran ">
+                  <tr *ngFor="let item of tran " style="text-align: center;">
                     <th scope="row">{{item.TransactionID}}</th>
                     <td>{{item.Ben_AccNo}}</td>
                     <td>{{item.Transaction_Type}}</td>
                     <td>{{item.Transaction_date | date:'dd/MM/YYYY hh:mm a'}}</td>
-                    <td style= "color: red; font-size: 15px;" ><i class="fas fa-rupee-sign" ></i> {{item.Withdraw}}</td>
-                    <td style= "color:green;"><i class="fas fa-rupee-sign" ></i> {{item.Deposit}}</td>
+                    <td style= "color: red; font-size: 15px;text-align: left;" ><i class="fas fa-rupee-sign" ></i> {{item.Withdraw}}</td>
+                    <td style= "color:green;text-align: left;"><i class="fas fa-rupee-sign" ></i> {{item.Deposit}}</td>
 
 
                   </tr>

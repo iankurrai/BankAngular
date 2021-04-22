@@ -68,21 +68,21 @@
     border: none!important;
     margin-top: 2rem!important;
     margin-bottom: 1rem!important;
-    width: 13rem;
+    width: 12rem;
     height: 5rem;
     color: #fff;
   }
   
   .logtime{
     position:absolute;
-    top: -40px;
+    top: -30px;
     left: -350px;
   }
    
   
   .logout {
     position: absolute;
-    top: -80px;
+    top: -70px;
     left:900px;
   }
   

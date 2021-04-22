@@ -79,6 +79,8 @@ export class ResetbyacComponent implements OnInit {
     {
       if(data=="false"){
         alert("Error Occurred");
+        this.ngzone.run(()=>this.router.navigateByUrl("/login"));
+
       }
       else{
         this.Code=data;
@@ -91,9 +93,11 @@ export class ResetbyacComponent implements OnInit {
 
         alert("OTP sent successfully");
         // this.startTimer();
+        this.ngzone.run(()=>this.router.navigateByUrl("/otp"));
+
       }
     });
-    this.ngzone.run(()=>this.router.navigateByUrl("/otp"));
+   
     }
   }
 }

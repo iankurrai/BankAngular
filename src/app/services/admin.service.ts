@@ -18,7 +18,7 @@ reg: RegisterinfoModule;
 http:HttpClient;
 ifsc:IfscModule;
 statement :StatementModule;
-url:string="http://localhost:55175/api/AdminAPI";
+url:string="http://localhost:10382/api/AdminAPI";
 httpOptions={headers : new HttpHeaders({
   'Content-Type':'application/json'
 })
@@ -107,5 +107,9 @@ Login_Admin(PSNo:number,pwd:string):Observable<string>{
 }
 ResetPassword_Admin(PSNo:number,Login_Pass:string):Observable<string>{
   return this.http.get<string>(this.url+"/AdminReset/"+PSNo+"/"+Login_Pass,this.httpOptions);
+  }
+
+  Session_login(accno:number):Observable<boolean>{
+    return this.http.get<boolean>(this.url +"/Sessionlogin/"+accno,this.httpOptions);
   }
 }

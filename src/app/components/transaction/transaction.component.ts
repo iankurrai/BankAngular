@@ -21,7 +21,7 @@ router:Router;
 no:number;
 Code:string;
 Tran_ID:string;
-currentDate : any = new Date();
+
 maxDate:any;
   constructor(svc:AdminService,ngzone:NgZone,router:Router, private datepipe:DatePipe) {
     this.svc=svc;
@@ -30,24 +30,13 @@ maxDate:any;
    }
   ngOnInit(): void {
     this.model.accNo=parseInt(sessionStorage.getItem('ACC_NO'));
+    this.no=parseInt(sessionStorage.getItem('ACC_NO'));
+    
     this.svc.Get_Ben(this.model.accNo).subscribe((data:BeneficiaryModule[])=>{
       this.ben=data;
       
     });
-    this.maxDate=this.currentDate.getDate();
-    console.log(this.maxDate);
 
-    this.maxDate=this.maxDate+14;
-    console.log(this.maxDate);
-
-    this.maxDate=new Date(this.maxDate);
-    console.log(this.maxDate);
-
-    this.maxDate=this.datepipe.transform(this.maxDate, "YYYY-MM-dd");
-    console.log(this.maxDate);
-    
-    this.currentDate = this.datepipe.transform(this.currentDate, "YYYY-MM-dd");
-    console.log(this.currentDate);
   }
 Transfer(transferform:NgForm):void{
   console.log(transferform.value);

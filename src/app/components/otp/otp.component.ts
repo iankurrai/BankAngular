@@ -22,6 +22,7 @@ trans_pass:string;
 model:any=[];
 timeLeft: number = 60;
 interval;
+count: number=0;
 subscribeTimer: any;
 observableTimer() {
   const source = timer(1000, 2000);
@@ -60,8 +61,10 @@ pauseTimer() {
     this.acc_no=parseInt(localStorage.getItem('ACC'));
     this.login_pass=localStorage.getItem('LOGIN');
     this.trans_pass=localStorage.getItem('TRANSACT');
-
+    
     this.OTP_User=otpform.value.OTP_NO;
+    if(this.count<2)
+    {
     if(this.OTP_User==this.Code){
       alert("Successful");
 
@@ -70,9 +73,18 @@ pauseTimer() {
         alert(data);
       });
       this.pauseTimer();
+      this.ngzone.run(()=>this.router.navigateByUrl("/login"));
+
     }
     else{
       alert("Invalid OTP");
+      this.count++;
+      alert("Invalid OTP. "+(3-this.count)+" Attempts left. Re-enter Correct OTP.");
+    }}
+    else{
+      alert("You have Exceeded the no of attemps. Transaction failed.");
+      this.pauseTimer();
+      this.ngzone.run(()=>this.router.navigateByUrl("/login"));
     }
   }
 }

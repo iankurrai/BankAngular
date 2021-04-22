@@ -5,6 +5,17 @@ function currentDateTime(){
     else{
         document.getElementById("maturity").removeAttribute("disabled");
         var dtToday = new Date();
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if(month < 10)
+        month = '0' + month.toString();
+        if(day < 10)
+        day = '0' + day.toString();
+    
+        var maxDate = year + '-' + month + '-' + day;
+        console.log(maxDate);
+        document.getElementById("maturity").setAttribute("min", maxDate);
     }
 }   
     function check(){
